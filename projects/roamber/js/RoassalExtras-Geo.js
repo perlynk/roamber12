@@ -731,15 +731,16 @@ category: 'adding',
 fn: function (aCountryName){
 var self=this;
 var symbol;
+function $ROPath(){return smalltalk.ROPath||(typeof ROPath=="undefined"?nil:ROPath)}
 function $ROSVGPath(){return smalltalk.ROSVGPath||(typeof ROSVGPath=="undefined"?nil:ROSVGPath)}
 return smalltalk.withContext(function($ctx1) { 
 symbol=_st(aCountryName)._asSymbol();
-_st(self["@view"])._add_(_st(_st($ROSVGPath())._path_(_st($ROSVGPath())._perform_(symbol)))._elementOn_(symbol));
+_st(self["@view"])._add_(_st(_st($ROPath())._path_(_st($ROSVGPath())._perform_(symbol)))._elementOn_(symbol));
 return self}, function($ctx1) {$ctx1.fill(self,"country:",{aCountryName:aCountryName,symbol:symbol},smalltalk.ROMapBuilder)})},
 args: ["aCountryName"],
-source: "country: aCountryName\x0a\x09| symbol |\x0a\x09symbol := aCountryName asSymbol.\x0a\x09view add: ((ROSVGPath path: (ROSVGPath perform: symbol)) elementOn: symbol)",
+source: "country: aCountryName\x0a\x09| symbol |\x0a\x09symbol := aCountryName asSymbol.\x0a\x09view add: ((ROPath path: (ROSVGPath perform: symbol)) elementOn: symbol)",
 messageSends: ["asSymbol", "add:", "elementOn:", "path:", "perform:"],
-referencedClasses: ["ROSVGPath"]
+referencedClasses: ["ROPath", "ROSVGPath"]
 }),
 smalltalk.ROMapBuilder);
 

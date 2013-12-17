@@ -6577,6 +6577,40 @@ smalltalk.String);
 
 smalltalk.addMethod(
 smalltalk.method({
+selector: "isNotNumeric",
+category: '*Roassal-Amber-Extensions',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=_st(self._isNumeric())._not();
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"isNotNumeric",{},smalltalk.String)})},
+args: [],
+source: "isNotNumeric\x0a\x09^ self isNumeric not",
+messageSends: ["not", "isNumeric"],
+referencedClasses: []
+}),
+smalltalk.String);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "isNumeric",
+category: '*Roassal-Amber-Extensions',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+ return !isNaN(parseFloat(self)) && isFinite(self); ;
+return self}, function($ctx1) {$ctx1.fill(self,"isNumeric",{},smalltalk.String)})},
+args: [],
+source: "isNumeric\x0a\x09\x22Answer if it can be converted asNumber\x22\x0a\x09< return !isNaN(parseFloat(self)) && isFinite(self); >\x0a\x22\x0a[ self asNumber] \x0a\x09\x09on: Error \x0a\x09\x09do: [ ^ false ].\x0a\x09^ true.\x0a\x22",
+messageSends: [],
+referencedClasses: []
+}),
+smalltalk.String);
+
+smalltalk.addMethod(
+smalltalk.method({
 selector: "lineCount",
 category: '*Roassal-Amber-Extensions',
 fn: function (){
@@ -6614,6 +6648,42 @@ return $1;
 args: ["anObject"],
 source: "roValue: anObject \x0a\x09^ anObject perform: self",
 messageSends: ["perform:"],
+referencedClasses: []
+}),
+smalltalk.String);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "split:",
+category: '*Roassal-Amber-Extensions',
+fn: function (aString){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=_st(aString)._subStrings_(self);
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"split:",{aString:aString},smalltalk.String)})},
+args: ["aString"],
+source: "split: aString\x0a\x09^ aString subStrings: self",
+messageSends: ["subStrings:"],
+referencedClasses: []
+}),
+smalltalk.String);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "trim",
+category: '*Roassal-Amber-Extensions',
+fn: function (){
+var self=this;
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=self._trimBoth();
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"trim",{},smalltalk.String)})},
+args: [],
+source: "trim\x0a\x09^ self trimBoth",
+messageSends: ["trimBoth"],
 referencedClasses: []
 }),
 smalltalk.String);
@@ -6689,6 +6759,25 @@ args: ["anObject"],
 source: "addFirst: anObject\x0a\x09<self.unshift(anObject); return anObject;>",
 messageSends: [],
 referencedClasses: []
+}),
+smalltalk.Array);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "asDictionary",
+category: '*Roassal-Amber-Extensions',
+fn: function (){
+var self=this;
+function $Dictionary(){return smalltalk.Dictionary||(typeof Dictionary=="undefined"?nil:Dictionary)}
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=_st($Dictionary())._from_(self);
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"asDictionary",{},smalltalk.Array)})},
+args: [],
+source: "asDictionary\x0a\x09^ Dictionary from: self",
+messageSends: ["from:"],
+referencedClasses: ["Dictionary"]
 }),
 smalltalk.Array);
 

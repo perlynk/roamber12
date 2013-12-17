@@ -7953,103 +7953,6 @@ referencedClasses: []
 smalltalk.ROBorder.klass);
 
 
-smalltalk.addClass('ROCountry', smalltalk.ROShape, ['path'], 'ARoassal');
-smalltalk.addMethod(
-smalltalk.method({
-selector: "initialize",
-category: 'not yet classified',
-fn: function (){
-var self=this;
-return smalltalk.withContext(function($ctx1) { 
-smalltalk.ROCountry.superclass.fn.prototype._initialize.apply(_st(self), []);
-self["@height"]=(20);
-self["@width"]=self["@height"];
-return self}, function($ctx1) {$ctx1.fill(self,"initialize",{},smalltalk.ROCountry)})},
-args: [],
-source: "initialize\x0a\x09super initialize.\x0a\x09width := height := 20.",
-messageSends: ["initialize"],
-referencedClasses: []
-}),
-smalltalk.ROCountry);
-
-smalltalk.addMethod(
-smalltalk.method({
-selector: "initializeSVGElementOn:for:",
-category: 'not yet classified',
-fn: function (canvas,anElement){
-var self=this;
-return smalltalk.withContext(function($ctx1) { 
-self["@svgElement"]=_st(canvas)._path_(self["@path"]);
-return self}, function($ctx1) {$ctx1.fill(self,"initializeSVGElementOn:for:",{canvas:canvas,anElement:anElement},smalltalk.ROCountry)})},
-args: ["canvas", "anElement"],
-source: "initializeSVGElementOn: canvas for: anElement\x0a\x09svgElement := canvas path: path",
-messageSends: ["path:"],
-referencedClasses: []
-}),
-smalltalk.ROCountry);
-
-smalltalk.addMethod(
-smalltalk.method({
-selector: "path:",
-category: 'not yet classified',
-fn: function (aString){
-var self=this;
-return smalltalk.withContext(function($ctx1) { 
-self["@path"]=aString;
-return self}, function($ctx1) {$ctx1.fill(self,"path:",{aString:aString},smalltalk.ROCountry)})},
-args: ["aString"],
-source: "path: aString\x0a\x09path := aString",
-messageSends: [],
-referencedClasses: []
-}),
-smalltalk.ROCountry);
-
-smalltalk.addMethod(
-smalltalk.method({
-selector: "updateSVGElementOn:for:",
-category: 'not yet classified',
-fn: function (canvas,anElement){
-var self=this;
-return smalltalk.withContext(function($ctx1) { 
-var $1,$2,$4,$3,$5;
-$1=self["@svgElement"];
-$2=$1;
-$4=_st(anElement)._position();
-$ctx1.sendIdx["position"]=1;
-$3=_st($4)._x();
-_st($2)._attr_with_("x",$3);
-$ctx1.sendIdx["attr:with:"]=1;
-_st($1)._attr_with_("y",_st(_st(anElement)._position())._y());
-$ctx1.sendIdx["attr:with:"]=2;
-$5=_st($1)._attr_with_("fill",self._rgbColor());
-return self}, function($ctx1) {$ctx1.fill(self,"updateSVGElementOn:for:",{canvas:canvas,anElement:anElement},smalltalk.ROCountry)})},
-args: ["canvas", "anElement"],
-source: "updateSVGElementOn: canvas for: anElement\x0a\x09svgElement \x0a\x09\x09attr: 'x' with: (anElement position x);\x0a\x09\x09attr: 'y' with: (anElement position y);\x0a\x22\x09\x09attr: 'width' with: ((self widthFor: anElement ) max: (self defaultSize));\x0a\x09\x09attr: 'height' with: ((self heightFor: anElement) max: (self defaultSize));\x22\x0a\x09\x09attr:'fill' with: (self rgbColor).",
-messageSends: ["attr:with:", "x", "position", "y", "rgbColor"],
-referencedClasses: []
-}),
-smalltalk.ROCountry);
-
-
-smalltalk.addMethod(
-smalltalk.method({
-selector: "path:",
-category: 'not yet classified',
-fn: function (aString){
-var self=this;
-return smalltalk.withContext(function($ctx1) { 
-var $1;
-$1=_st(self._new())._path_(aString);
-return $1;
-}, function($ctx1) {$ctx1.fill(self,"path:",{aString:aString},smalltalk.ROCountry.klass)})},
-args: ["aString"],
-source: "path: aString\x0a\x09^ self new path: aString.",
-messageSends: ["path:", "new"],
-referencedClasses: []
-}),
-smalltalk.ROCountry.klass);
-
-
 smalltalk.addClass('ROEllipse', smalltalk.ROShape, ['radius', 'borderWidth', 'borderColor'], 'ARoassal');
 smalltalk.addMethod(
 smalltalk.method({
@@ -8480,20 +8383,22 @@ selector: "initialize",
 category: 'not yet classified',
 fn: function (){
 var self=this;
-function $Color(){return smalltalk.Color||(typeof Color=="undefined"?nil:Color)}
 return smalltalk.withContext(function($ctx1) { 
+var $1;
 smalltalk.ROPath.superclass.fn.prototype._initialize.apply(_st(self), []);
 self._path_("");
 self["@borderWidth"]=(1);
-self["@borderColor"]=_st($Color())._gray();
-self["@color"]=_st($Color())._blue();
+$1=self._class();
+$ctx1.sendIdx["class"]=1;
+self["@borderColor"]=_st($1)._defaultBorderColor();
+self["@color"]=_st(self._class())._defaultColor();
 self["@height"]=(20);
 self["@width"]=self["@height"];
 return self}, function($ctx1) {$ctx1.fill(self,"initialize",{},smalltalk.ROPath)})},
 args: [],
-source: "initialize\x0a\x09super initialize.\x0a\x09self path: ''.\x0a\x09borderWidth := 1. \x0a\x09borderColor := Color gray.\x0a\x09color := Color blue.\x0a\x09\x0a\x09\x22 added for Amber version \x22\x0a\x09width := height := 20.",
-messageSends: ["initialize", "path:", "gray", "blue"],
-referencedClasses: ["Color"]
+source: "initialize\x0a\x09super initialize.\x0a\x09self path: ''.\x0a\x09borderWidth := 1. \x0a\x09borderColor := self class defaultBorderColor.\x0a\x09color := self class defaultColor.\x0a\x09\x0a\x09\x22 added for Amber version \x22\x0a\x09width := height := 20.",
+messageSends: ["initialize", "path:", "defaultBorderColor", "class", "defaultColor"],
+referencedClasses: []
 }),
 smalltalk.ROPath);
 
@@ -8565,6 +8470,44 @@ referencedClasses: []
 }),
 smalltalk.ROPath);
 
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "defaultBorderColor",
+category: 'not yet classified',
+fn: function (){
+var self=this;
+function $Color(){return smalltalk.Color||(typeof Color=="undefined"?nil:Color)}
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=_st($Color())._black();
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"defaultBorderColor",{},smalltalk.ROPath.klass)})},
+args: [],
+source: "defaultBorderColor\x0a\x09^ Color black",
+messageSends: ["black"],
+referencedClasses: ["Color"]
+}),
+smalltalk.ROPath.klass);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "defaultColor",
+category: 'not yet classified',
+fn: function (){
+var self=this;
+function $Color(){return smalltalk.Color||(typeof Color=="undefined"?nil:Color)}
+return smalltalk.withContext(function($ctx1) { 
+var $1;
+$1=_st($Color())._white();
+return $1;
+}, function($ctx1) {$ctx1.fill(self,"defaultColor",{},smalltalk.ROPath.klass)})},
+args: [],
+source: "defaultColor\x0a\x09^ Color white",
+messageSends: ["white"],
+referencedClasses: ["Color"]
+}),
+smalltalk.ROPath.klass);
 
 smalltalk.addMethod(
 smalltalk.method({
