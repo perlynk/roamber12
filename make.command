@@ -5,13 +5,9 @@ R=$D/projects/roamber
 
 cd $R/st
 
-DemoReqts=Canvas,ARoassal,Graph-ET-Core,ARoassal-Event,ARoassal-Layout,ARoassal-Interaction,Roassal-Amber-Extensions,RoassalExtras-Geo,Roassal-Plot,Roassal-Builder-Punchcard
+DemoReqts=Canvas,ARoassal,Graph-ET-Core,ARoassal-Event,ARoassal-Layout,ARoassal-Interaction
 
 # THIS SHOULD BE TURNED INTO A MAKEFILE ...
-
-$B/amberc -v -l ${DemoReqts} -L $R/js -n roamber -D $R/js ARoassal-Demo.st
-
-exit
 
 $B/amberc -v -n roamber -D $R/js ARoassal-Event.st
 $B/amberc -v -n roamber -D $R/js ARoassal.st
