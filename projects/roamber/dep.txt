@@ -1,0 +1,599 @@
+
+	PackageSort sort: 'ARoassal' needs: #Announcer subclass: #ROAnnouncer.
+	PackageSort sort: 'ARoassal' needs: #Collection methodsFor: '*ARoassal'.
+	PackageSort sort: 'ARoassal' needs: #Number methodsFor: '*ARoassal'.
+	PackageSort sort: 'ARoassal' needs: #Object subclass: #ROObject.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractCanvas class methodsFor: 'configuration'.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractCanvas class methodsFor: 'hooks'.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractCanvas class methodsFor: 'public'.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractCanvas methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractCanvas methodsFor: 'convenient'.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractCanvas methodsFor: 'hooks'.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractCanvas methodsFor: 'initialize'.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractCanvas methodsFor: 'util'.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractComponent class methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractComponent methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractComponent methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractComponent methodsFor: 'drawing'.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractComponent methodsFor: 'events'.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractComponent methodsFor: 'testing'.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractComponent subclass: #ROEdge.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractComponent subclass: #ROElement.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractLineShape class methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractLineShape methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractLineShape subclass: #ROLine.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractPathShape methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractPathShape subclass: #ROImageShape.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractPathShape subclass: #ROLabel.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractPathShape subclass: #ROSVGPath.
+	PackageSort sort: 'ARoassal' needs: #ROAbstractPathShape subclass: #ROTux.
+	PackageSort sort: 'ARoassal' needs: #ROAnnouncer methodsFor: 'announce'.
+	PackageSort sort: 'ARoassal' needs: #ROAnnouncer methodsFor: 'forwarding'.
+	PackageSort sort: 'ARoassal' needs: #ROAnnouncer methodsFor: 'testing'.
+	PackageSort sort: 'ARoassal' needs: #ROBorder class methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal' needs: #ROBorder methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal' needs: #ROBox class methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal' needs: #ROBox methodsFor: 'configuration'.
+	PackageSort sort: 'ARoassal' needs: #ROBox methodsFor: 'drawing'.
+	PackageSort sort: 'ARoassal' needs: #ROBox methodsFor: 'initialize'.
+	PackageSort sort: 'ARoassal' needs: #ROBox subclass: #ROBorder.
+	PackageSort sort: 'ARoassal' needs: #ROContainer methodsFor: 'actions'.
+	PackageSort sort: 'ARoassal' needs: #ROContainer methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal' needs: #ROContainer subclass: #ROAbstractComponent.
+	PackageSort sort: 'ARoassal' needs: #ROContainer subclass: #ROView.
+	PackageSort sort: 'ARoassal' needs: #ROCountry class methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal' needs: #ROCountry methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal' needs: #ROEdge class methodsFor: 'public - edges constructions'.
+	PackageSort sort: 'ARoassal' needs: #ROEdge class methodsFor: 'public'.
+	PackageSort sort: 'ARoassal' needs: #ROEdge methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal' needs: #ROEdge methodsFor: 'testing'.
+	PackageSort sort: 'ARoassal' needs: #ROElement class methodsFor: 'public'.
+	PackageSort sort: 'ARoassal' needs: #ROElement methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal' needs: #ROElement methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal' needs: #ROElement methodsFor: 'drawing'.
+	PackageSort sort: 'ARoassal' needs: #ROElement methodsFor: 'initialize'.
+	PackageSort sort: 'ARoassal' needs: #ROElement methodsFor: 'testing'.
+	PackageSort sort: 'ARoassal' needs: #ROEllipse methodsFor: 'configuration'.
+	PackageSort sort: 'ARoassal' needs: #ROEllipse methodsFor: 'drawing'.
+	PackageSort sort: 'ARoassal' needs: #ROEllipse methodsFor: 'initialize'.
+	PackageSort sort: 'ARoassal' needs: #ROImageShape class methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal' needs: #ROImageShape methodsFor: 'initialize-release'.
+	PackageSort sort: 'ARoassal' needs: #ROImageShape methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal' needs: #ROImageShape methodsFor: 'private'.
+	PackageSort sort: 'ARoassal' needs: #ROLabel class methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal' needs: #ROLabel methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal' needs: #ROLine methodsFor: 'drawing'.
+	PackageSort sort: 'ARoassal' needs: #RONullShape methodsFor: 'hook'.
+	PackageSort sort: 'ARoassal' needs: #ROObject subclass: #ROAbstractCanvas.
+	PackageSort sort: 'ARoassal' needs: #ROObject subclass: #ROContainer.
+	PackageSort sort: 'ARoassal' needs: #ROObject subclass: #ROShape.
+	PackageSort sort: 'ARoassal' needs: #ROPath class methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal' needs: #ROPath methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal' needs: #ROSVGPath class methodsFor: 'configuration'.
+	PackageSort sort: 'ARoassal' needs: #ROSVGPath class methodsFor: 'countries'.
+	PackageSort sort: 'ARoassal' needs: #ROSVGPath class methodsFor: 'instance creation'.
+	PackageSort sort: 'ARoassal' needs: #ROSVGPath class methodsFor: 'list of countries'.
+	PackageSort sort: 'ARoassal' needs: #ROSVGPath methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal' needs: #ROSVGPath methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal' needs: #ROSVGPath methodsFor: 'initialize'.
+	PackageSort sort: 'ARoassal' needs: #ROSVGPath methodsFor: 'instance creation'.
+	PackageSort sort: 'ARoassal' needs: #ROSVGPath methodsFor: 'processing'.
+	PackageSort sort: 'ARoassal' needs: #ROSVGPath methodsFor: 'rendering'.
+	PackageSort sort: 'ARoassal' needs: #ROSVGPath methodsFor: 'utility'.
+	PackageSort sort: 'ARoassal' needs: #ROShape class methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal' needs: #ROShape methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal' needs: #ROShape methodsFor: 'creation'.
+	PackageSort sort: 'ARoassal' needs: #ROShape methodsFor: 'drawing'.
+	PackageSort sort: 'ARoassal' needs: #ROShape subclass: #ROAbstractLineShape.
+	PackageSort sort: 'ARoassal' needs: #ROShape subclass: #ROAbstractPathShape.
+	PackageSort sort: 'ARoassal' needs: #ROShape subclass: #ROBox.
+	PackageSort sort: 'ARoassal' needs: #ROShape subclass: #ROCountry.
+	PackageSort sort: 'ARoassal' needs: #ROShape subclass: #ROEllipse.
+	PackageSort sort: 'ARoassal' needs: #ROShape subclass: #RONullShape.
+	PackageSort sort: 'ARoassal' needs: #ROShape subclass: #ROPath.
+	PackageSort sort: 'ARoassal' needs: #ROTux methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal' needs: #ROView class methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal' needs: #ROView methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal' needs: #ROView methodsFor: 'adding'.
+	PackageSort sort: 'ARoassal' needs: #ROView methodsFor: 'initialize'.
+	PackageSort sort: 'ARoassal' needs: #ROView methodsFor: 'public - opening'.
+	PackageSort sort: 'ARoassal' needs: #SequenceableCollection methodsFor: '*ARoassal'.
+	PackageSort sort: 'ARoassal-AttachPoint' needs: #ROAttachPoint class methodsFor: 'public - creation'.
+	PackageSort sort: 'ARoassal-AttachPoint' needs: #ROAttachPoint methodsFor: 'public - hooks'.
+	PackageSort sort: 'ARoassal-AttachPoint' needs: #ROAttachPoint subclass: #ROCenteredAttachPoint.
+	PackageSort sort: 'ARoassal-AttachPoint' needs: #ROAttachPoint subclass: #ROHorizontalAttachPoint.
+	PackageSort sort: 'ARoassal-AttachPoint' needs: #ROAttachPoint subclass: #ROShorterDistanceAttachPoint.
+	PackageSort sort: 'ARoassal-AttachPoint' needs: #ROAttachPoint subclass: #ROVerticalAttachPoint.
+	PackageSort sort: 'ARoassal-AttachPoint' needs: #ROCenteredAttachPoint methodsFor: 'public - hooks'.
+	PackageSort sort: 'ARoassal-AttachPoint' needs: #ROHorizontalAttachPoint methodsFor: 'public - hooks'.
+	PackageSort sort: 'ARoassal-AttachPoint' needs: #ROObject subclass: #ROAttachPoint.
+	PackageSort sort: 'ARoassal-AttachPoint' needs: #ROShorterDistanceAttachPoint methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal-AttachPoint' needs: #ROShorterDistanceAttachPoint methodsFor: 'initialize-release'.
+	PackageSort sort: 'ARoassal-AttachPoint' needs: #ROShorterDistanceAttachPoint methodsFor: 'public - hooks'.
+	PackageSort sort: 'ARoassal-AttachPoint' needs: #ROShorterDistanceAttachPoint methodsFor: 'util'.
+	PackageSort sort: 'ARoassal-AttachPoint' needs: #ROVerticalAttachPoint methodsFor: 'public - hooks'.
+	PackageSort sort: 'ARoassal-AttachPoint-Test' needs: #ROAttachPointTest methodsFor: 'rendering'.
+	PackageSort sort: 'ARoassal-AttachPoint-Test' needs: #ROAttachPointTest methodsFor: 'running'.
+	PackageSort sort: 'ARoassal-AttachPoint-Test' needs: #ROAttachPointTest methodsFor: 'tests'.
+	PackageSort sort: 'ARoassal-AttachPoint-Test' needs: #ROTest subclass: #ROAttachPointTest.
+	PackageSort sort: 'ARoassal-Builder-Punchcard' needs: #ROObject subclass: #ROPunchcardBuilder.
+	PackageSort sort: 'ARoassal-Builder-Punchcard' needs: #ROObject subclass: #ROPunchcardExample.
+	PackageSort sort: 'ARoassal-Builder-Punchcard' needs: #ROPunchcardBuilder methodsFor: 'adding'.
+	PackageSort sort: 'ARoassal-Builder-Punchcard' needs: #ROPunchcardBuilder methodsFor: 'initialize-release'.
+	PackageSort sort: 'ARoassal-Builder-Punchcard' needs: #ROPunchcardBuilder methodsFor: 'instance creation'.
+	PackageSort sort: 'ARoassal-Builder-Punchcard' needs: #ROPunchcardBuilder methodsFor: 'metrics'.
+	PackageSort sort: 'ARoassal-Builder-Punchcard' needs: #ROPunchcardBuilderTest methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal-Builder-Punchcard' needs: #ROPunchcardExample methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Builder-Punchcard' needs: #ROTest subclass: #ROPunchcardBuilderTest.
+	PackageSort sort: 'ARoassal-Demo' needs: #Object subclass: #RODemo.
+	PackageSort sort: 'ARoassal-Demo' needs: #RODemo class methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Demo' needs: #RODemo methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Demo' needs: #ROExample methodsFor: 'demo'.
+	PackageSort sort: 'ARoassal-Demo' needs: #ROExampleSelector class methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Demo' needs: #ROExampleSelector methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Demo' needs: #ROExampleSelector methodsFor: 'utils'.
+	PackageSort sort: 'ARoassal-Demo' needs: #ROObject subclass: #ROExample.
+	PackageSort sort: 'ARoassal-Demo' needs: #ROWorkspace class methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Demo' needs: #ROWorkspace methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Demo' needs: #Widget subclass: #ROExampleSelector.
+	PackageSort sort: 'ARoassal-Demo' needs: #Widget subclass: #ROWorkspace.
+	PackageSort sort: 'ARoassal-Event' needs: #ROAbstractMouseDragging methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal-Event' needs: #ROAbstractMouseDragging subclass: #ROMouseDragged.
+	PackageSort sort: 'ARoassal-Event' needs: #ROAbstractMouseDragging subclass: #ROMouseDragging.
+	PackageSort sort: 'ARoassal-Event' needs: #ROCameraEvent subclass: #ROCameraResized.
+	PackageSort sort: 'ARoassal-Event' needs: #ROCameraEvent subclass: #ROCameraTranslated.
+	PackageSort sort: 'ARoassal-Event' needs: #ROCameraResized methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal-Event' needs: #ROCameraTranslated methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal-Event' needs: #ROComponentEvent methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal-Event' needs: #ROComponentEvent methodsFor: 'action'.
+	PackageSort sort: 'ARoassal-Event' needs: #ROComponentEvent methodsFor: 'initialize-release'.
+	PackageSort sort: 'ARoassal-Event' needs: #ROComponentEvent methodsFor: 'testing'.
+	PackageSort sort: 'ARoassal-Event' needs: #ROComponentEvent subclass: #ROAbstractMouseDragging.
+	PackageSort sort: 'ARoassal-Event' needs: #ROComponentEvent subclass: #ROElementEvent.
+	PackageSort sort: 'ARoassal-Event' needs: #ROComponentEvent subclass: #ROKeyDown.
+	PackageSort sort: 'ARoassal-Event' needs: #ROComponentEvent subclass: #ROMouseClick.
+	PackageSort sort: 'ARoassal-Event' needs: #ROComponentEvent subclass: #ROMouseEnter.
+	PackageSort sort: 'ARoassal-Event' needs: #ROComponentEvent subclass: #ROMouseLeave.
+	PackageSort sort: 'ARoassal-Event' needs: #ROComponentEvent subclass: #ROMouseMove.
+	PackageSort sort: 'ARoassal-Event' needs: #ROElementEvent subclass: #ROElementResized.
+	PackageSort sort: 'ARoassal-Event' needs: #ROElementEvent subclass: #ROElementTranslated.
+	PackageSort sort: 'ARoassal-Event' needs: #ROEvent class methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal-Event' needs: #ROEvent subclass: #ROCameraEvent.
+	PackageSort sort: 'ARoassal-Event' needs: #ROEvent subclass: #ROComponentEvent.
+	PackageSort sort: 'ARoassal-Event' needs: #ROEvent subclass: #ROLayoutEvent.
+	PackageSort sort: 'ARoassal-Event' needs: #ROEvent subclass: #RORefreshNeeded.
+	PackageSort sort: 'ARoassal-Event' needs: #ROEvent subclass: #ROViewChanged.
+	PackageSort sort: 'ARoassal-Event' needs: #ROEvent subclass: #ROWindowResized.
+	PackageSort sort: 'ARoassal-Event' needs: #ROKeyDown methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal-Event' needs: #ROLayoutEvent methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal-Event' needs: #ROLayoutEvent subclass: #ROLayoutBegin.
+	PackageSort sort: 'ARoassal-Event' needs: #ROLayoutEvent subclass: #ROLayoutEnd.
+	PackageSort sort: 'ARoassal-Event' needs: #ROLayoutEvent subclass: #ROLayoutStep.
+	PackageSort sort: 'ARoassal-Event' needs: #ROLayoutStep methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal-Event' needs: #ROLayoutStep methodsFor: 'initialize-release'.
+	PackageSort sort: 'ARoassal-Event' needs: #ROMouseClick methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal-Event' needs: #ROMouseClick subclass: #ROMouseLeftClick.
+	PackageSort sort: 'ARoassal-Event' needs: #ROMouseClick subclass: #ROMouseRightClick.
+	PackageSort sort: 'ARoassal-Event' needs: #ROMouseDragging class methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal-Event' needs: #ROViewChanged methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal-Event' needs: #ROWindowResized methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal-Event' needs: #SystemAnnouncement subclass: #ROEvent.
+	PackageSort sort: 'ARoassal-Interaction' needs: #ROAbstractPopup class methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Interaction' needs: #ROAbstractPopup methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Interaction' needs: #ROAbstractPopup subclass: #ROPopup.
+	PackageSort sort: 'ARoassal-Interaction' needs: #ROClickable methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Interaction' needs: #RODraggable methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal-Interaction' needs: #ROHighlight class methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Interaction' needs: #ROHighlight methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Interaction' needs: #ROHoverable methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Interaction' needs: #ROInteraction class methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal-Interaction' needs: #ROInteraction methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal-Interaction' needs: #ROInteraction subclass: #ROAbstractPopup.
+	PackageSort sort: 'ARoassal-Interaction' needs: #ROInteraction subclass: #ROClickable.
+	PackageSort sort: 'ARoassal-Interaction' needs: #ROInteraction subclass: #RODraggable.
+	PackageSort sort: 'ARoassal-Interaction' needs: #ROInteraction subclass: #ROHighlight.
+	PackageSort sort: 'ARoassal-Interaction' needs: #ROInteraction subclass: #ROHoverable.
+	PackageSort sort: 'ARoassal-Interaction' needs: #ROObject subclass: #ROInteraction.
+	PackageSort sort: 'ARoassal-Interaction' needs: #ROPopup class methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Interaction' needs: #ROPopup methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Interaction-Test' needs: #ROPopupTest methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Interaction-Test' needs: #ROTest subclass: #ROPopupTest.
+	PackageSort sort: 'ARoassal-Layout' needs: #Object subclass: #ROLayout.
+	PackageSort sort: 'ARoassal-Layout' needs: #Object subclass: #ROLayoutTranslator.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractCompactTree class methodsFor: 'testing'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractCompactTree methodsFor: 'algorithm'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractCompactTree methodsFor: 'hook'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractCompactTree methodsFor: 'initialize-release'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractCompactTree methodsFor: 'private'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractCompactTree subclass: #RORadialTreeLayout.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractGraphLayout class methodsFor: 'constants'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractGraphLayout class methodsFor: 'public'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractGraphLayout methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractGraphLayout methodsFor: 'actions'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractGraphLayout methodsFor: 'battista'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractGraphLayout methodsFor: 'default values'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractGraphLayout methodsFor: 'hooks'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractGraphLayout methodsFor: 'private'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractGraphLayout subclass: #ROAbstractCompactTree.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractGraphLayout subclass: #ROAbstractRegularTreeLayout.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractGridLayout class methodsFor: 'instance creation'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractGridLayout class methodsFor: 'public'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractGridLayout methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractGridLayout methodsFor: 'initialize-release'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractGridLayout subclass: #ROCellLayout.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractGridLayout subclass: #ROGridLayout.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractLineLayout methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractLineLayout subclass: #ROHorizontalLineLayout.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractRegularTreeLayout methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractRegularTreeLayout methodsFor: 'hook'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractRegularTreeLayout methodsFor: 'hook-private'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractRegularTreeLayout methodsFor: 'initialize'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractRegularTreeLayout methodsFor: 'private'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractRegularTreeLayout subclass: #ROAbstractVerticalTreeLayout.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractVerticalTreeLayout methodsFor: 'hook-private'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractVerticalTreeLayout methodsFor: 'initialize-release'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractVerticalTreeLayout methodsFor: 'private'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractVerticalTreeLayout subclass: #RODominanceTreeLayout.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROAbstractVerticalTreeLayout subclass: #ROTreeLayout.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROCell class methodsFor: 'instance creation'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROCell methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROCellLayout methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROCellLayout methodsFor: 'hook'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROCellLayout methodsFor: 'initialize-release'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROCellMatrix class methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROCellMatrix methodsFor: 'accessing rows/columns'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROCellMatrix methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROCellMatrix methodsFor: 'private'.
+	PackageSort sort: 'ARoassal-Layout' needs: #RODirectLayoutTranslator methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Layout' needs: #RODominanceTreeLayout methodsFor: 'hook-private'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROEdgeDrivenLayout methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROEdgeDrivenLayout methodsFor: 'default values'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROEdgeDrivenLayout methodsFor: 'hook'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROEdgeDrivenLayout methodsFor: 'initialize-release'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROEdgeDrivenLayout methodsFor: 'iterator'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROEdgeDrivenLayout methodsFor: 'private'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROEdgeDrivenLayout methodsFor: 'testing'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROEdgeDrivenLayout subclass: #ROAbstractGraphLayout.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROGridLayout methodsFor: 'hook'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROHorizontalLineLayout methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROLayout class methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROLayout methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROLayout subclass: #ROAbstractGridLayout.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROLayout subclass: #ROAbstractLineLayout.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROLayout subclass: #ROEdgeDrivenLayout.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROLayoutTranslator class methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROLayoutTranslator methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROLayoutTranslator subclass: #RODirectLayoutTranslator.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROObject subclass: #ROCell.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROObject subclass: #ROCellMatrix.
+	PackageSort sort: 'ARoassal-Layout' needs: #RORadialTreeLayout methodsFor: 'algorithm'.
+	PackageSort sort: 'ARoassal-Layout' needs: #RORadialTreeLayout methodsFor: 'hook'.
+	PackageSort sort: 'ARoassal-Layout' needs: #RORadialTreeLayout methodsFor: 'private'.
+	PackageSort sort: 'ARoassal-Layout' needs: #ROTreeLayout methodsFor: 'hook-private'.
+	PackageSort sort: 'ARoassal-Layout-Test' needs: #ROLayoutTest methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal-Layout-Test' needs: #ROLayoutTest subclass: #ROTreeLayoutTest.
+	PackageSort sort: 'ARoassal-Layout-Test' needs: #ROTreeLayoutTest methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal-Layout-Test' needs: #TestCase subclass: #ROLayoutTest.
+	PackageSort sort: 'ARoassal-Raphaeljs' needs: #Object subclass: #RORaphael.
+	PackageSort sort: 'ARoassal-Raphaeljs' needs: #ROObject subclass: #RORaphaelCanvas.
+	PackageSort sort: 'ARoassal-Raphaeljs' needs: #RORaphael class methodsFor: 'public'.
+	PackageSort sort: 'ARoassal-Raphaeljs' needs: #RORaphael methodsFor: 'accessing'.
+	PackageSort sort: 'ARoassal-Raphaeljs' needs: #RORaphael methodsFor: 'drawing'.
+	PackageSort sort: 'ARoassal-Raphaeljs' needs: #RORaphael methodsFor: 'events-processing'.
+	PackageSort sort: 'ARoassal-Raphaeljs' needs: #RORaphael methodsFor: 'initialize'.
+	PackageSort sort: 'ARoassal-Raphaeljs' needs: #RORaphael methodsFor: 'morph'.
+	PackageSort sort: 'ARoassal-Raphaeljs' needs: #RORaphael methodsFor: 'testing'.
+	PackageSort sort: 'ARoassal-Raphaeljs' needs: #RORaphael methodsFor: 'util'.
+	PackageSort sort: 'ARoassal-Raphaeljs' needs: #RORaphaelCanvas class methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal-Raphaeljs' needs: #RORaphaelCanvas methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'ARoassal-Test' needs: #ROEdgeTest methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Test' needs: #ROElementTest methodsFor: 'test shape size'.
+	PackageSort sort: 'ARoassal-Test' needs: #ROElementTest methodsFor: 'test'.
+	PackageSort sort: 'ARoassal-Test' needs: #ROShapeTest methodsFor: 'not yet classified'.
+	PackageSort sort: 'ARoassal-Test' needs: #ROTest subclass: #ROEdgeTest.
+	PackageSort sort: 'ARoassal-Test' needs: #ROTest subclass: #ROElementTest.
+	PackageSort sort: 'ARoassal-Test' needs: #ROTest subclass: #ROShapeTest.
+	PackageSort sort: 'ARoassal-Test' needs: #ROTest subclass: #ROViewTest.
+	PackageSort sort: 'ARoassal-Test' needs: #ROViewTest methodsFor: 'running'.
+	PackageSort sort: 'ARoassal-Test' needs: #ROViewTest methodsFor: 'test'.
+	PackageSort sort: 'ARoassal-Test' needs: #TestCase subclass: #ROTest.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETAbstractAxisDecorator class methodsFor: 'configuration'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETAbstractAxisDecorator methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETAbstractAxisDecorator methodsFor: 'displaying'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETAbstractAxisDecorator subclass: #GETBaseLineDecorator.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETAbstractAxisDecorator subclass: #GETRegularLabelDecorator.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETAbstractAxisDecorator subclass: #GETRegularTickDecorator.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETAbstractAxisDecorator subclass: #GETTitleDecorator.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETAbstractAxisStrategy methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETAbstractAxisStrategy methodsFor: 'initialize-release'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETAbstractAxisStrategy methodsFor: 'processing'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETAbstractAxisStrategy subclass: #GETLeftRightAxisStrategy.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETAbstractAxisStrategy subclass: #GETTopDownAxisStrategy.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETAxis methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETAxis methodsFor: 'initialize-release'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETAxis methodsFor: 'interface'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETAxis methodsFor: 'processing'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETBaseLineDecorator methodsFor: 'displaying'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETLeftRightAxisStrategy methodsFor: 'processing'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETRegularLabelDecorator class methodsFor: 'configuration'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETRegularLabelDecorator methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETRegularLabelDecorator methodsFor: 'customizing labels'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETRegularLabelDecorator methodsFor: 'displaying'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETRegularLabelDecorator methodsFor: 'initialize-release'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETRegularTickDecorator class methodsFor: 'configuration'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETRegularTickDecorator methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETRegularTickDecorator methodsFor: 'displaying'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETRegularTickDecorator methodsFor: 'initialize-release'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETTitleDecorator methodsFor: 'displaying'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #GETTopDownAxisStrategy methodsFor: 'processing'.
+	PackageSort sort: 'Graph-ET-Axis' needs: #Object subclass: #GETAbstractAxisDecorator.
+	PackageSort sort: 'Graph-ET-Axis' needs: #Object subclass: #GETAbstractAxisStrategy.
+	PackageSort sort: 'Graph-ET-Axis' needs: #Object subclass: #GETAxis.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstract2DDiagram methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstract2DDiagram methodsFor: 'initialize-release'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstract2DDiagram methodsFor: 'private'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstract2DDiagram methodsFor: 'scripting'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstract2DDiagram subclass: #GETPieDiagram.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstract2DDiagram subclass: #GETScatterPlot.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstract2DDiagram subclass: #GETSingleAxisDiagram.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractBarDiagram class methodsFor: 'default'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractBarDiagram methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractBarDiagram methodsFor: 'initialize-release'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractBarDiagram methodsFor: 'private'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractBarDiagram subclass: #GETHorizontalBarDiagram.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractBarDiagram subclass: #GETVerticalBarDiagram.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractDiagram class methodsFor: 'default'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractDiagram methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractDiagram methodsFor: 'animation'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractDiagram methodsFor: 'coloring'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractDiagram methodsFor: 'displaying'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractDiagram methodsFor: 'initialize-release'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractDiagram methodsFor: 'interaction'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractDiagram methodsFor: 'private'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractDiagram subclass: #GETAbstract2DDiagram.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractLineDiagram class methodsFor: 'default'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractLineDiagram methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractLineDiagram methodsFor: 'displaying'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractLineDiagram methodsFor: 'initialize-release'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractLineDiagram methodsFor: 'processing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractLineDiagram methodsFor: 'scripting'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractLineDiagram subclass: #GETLineDiagram.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETAbstractLineDiagram subclass: #GETOrdinaryLineDiagram.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETCompositeDiagram methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETCompositeDiagram methodsFor: 'displaying'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETCompositeDiagram methodsFor: 'initialize-release'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETCompositeDiagram methodsFor: 'private'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETCompositeDiagram methodsFor: 'processing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETCompositeDiagram methodsFor: 'scripting'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETDataObject methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETDataObject methodsFor: 'initialize-release'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETDiagramBuilder class methodsFor: 'instance creation'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETDiagramBuilder methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETDiagramBuilder methodsFor: 'animation'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETDiagramBuilder methodsFor: 'diagrams'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETDiagramBuilder methodsFor: 'initialize-release'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETDiagramBuilder methodsFor: 'interaction'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETDiagramBuilder methodsFor: 'private'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETDiagramBuilder methodsFor: 'public-ui'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETDiagramBuilder methodsFor: 'testing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETHorizontalBarDiagram methodsFor: 'animation'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETHorizontalBarDiagram methodsFor: 'displaying'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETHorizontalBarDiagram methodsFor: 'private'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETHorizontalBarDiagram methodsFor: 'processing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETHorizontalBarDiagram methodsFor: 'scripting'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETLineDiagram methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETLineDiagram methodsFor: 'animation'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETLineDiagram methodsFor: 'displaying'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETLineDiagram methodsFor: 'private'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETLineDiagram methodsFor: 'processing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETLineDiagram methodsFor: 'scripting'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETOrdinaryLineDiagram class methodsFor: 'default'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETOrdinaryLineDiagram methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETOrdinaryLineDiagram methodsFor: 'initialize-release'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETOrdinaryLineDiagram methodsFor: 'private'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETOrdinaryLineDiagram methodsFor: 'processing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETPieDiagram class methodsFor: 'default'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETPieDiagram methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETPieDiagram methodsFor: 'displaying'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETPieDiagram methodsFor: 'initialize-release'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETPieDiagram methodsFor: 'procesing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETScatterPlot methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETScatterPlot methodsFor: 'displaying'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETSingleAxisDiagram class methodsFor: 'default'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETSingleAxisDiagram methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETSingleAxisDiagram methodsFor: 'initialize-release'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETSingleAxisDiagram methodsFor: 'processing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETSingleAxisDiagram methodsFor: 'scripting'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETSingleAxisDiagram subclass: #GETAbstractBarDiagram.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETSingleAxisDiagram subclass: #GETAbstractLineDiagram.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETSingleAxisDiagram subclass: #GETCompositeDiagram.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETVerticalBarDiagram methodsFor: 'animation'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETVerticalBarDiagram methodsFor: 'displaying'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETVerticalBarDiagram methodsFor: 'private'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETVerticalBarDiagram methodsFor: 'processing'.
+	PackageSort sort: 'Graph-ET-Core' needs: #GETVerticalBarDiagram methodsFor: 'scripting'.
+	PackageSort sort: 'Graph-ET-Core' needs: #Object methodsFor: '*Graph-ET-Core'.
+	PackageSort sort: 'Graph-ET-Core' needs: #Object subclass: #GETAbstractDiagram.
+	PackageSort sort: 'Graph-ET-Core' needs: #Object subclass: #GETDataObject.
+	PackageSort sort: 'Graph-ET-Core' needs: #Object subclass: #GETDiagramBuilder.
+	PackageSort sort: 'Graph-ET-Core' needs: #SequenceableCollection methodsFor: '*Graph-ET-Core'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETBarDiagramTest methodsFor: 'test-animation'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETBarDiagramTest methodsFor: 'test-color'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETBarDiagramTest methodsFor: 'test-function'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETBarDiagramTest methodsFor: 'test-horizontal axis'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETBarDiagramTest methodsFor: 'test-init'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETBarDiagramTest methodsFor: 'test-interaction'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETBarDiagramTest methodsFor: 'test-labels'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETBarDiagramTest methodsFor: 'test-vertical axis'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETCompositeDiagramTest methodsFor: 'test-axis'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETCompositeDiagramTest methodsFor: 'test-basic'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETCompositeDiagramTest methodsFor: 'test-customValues'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETCompositeDiagramTest methodsFor: 'test-lines'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETCompositeDiagramTest methodsFor: 'test-ordinaryLines'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETLineDiagramTest methodsFor: 'test-axis'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETLineDiagramTest methodsFor: 'test-color'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETLineDiagramTest methodsFor: 'test-init'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETLineDiagramTest methodsFor: 'test-interaction'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #GETPieDiagramTest methodsFor: 'test-function'.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #TestCase subclass: #GETBarDiagramTest.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #TestCase subclass: #GETCompositeDiagramTest.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #TestCase subclass: #GETLineDiagramTest.
+	PackageSort sort: 'Graph-ET-Core-Tests' needs: #TestCase subclass: #GETPieDiagramTest.
+	PackageSort sort: 'Graph-ET-Examples' needs: #DotaHero methodsFor: 'accesing'.
+	PackageSort sort: 'Graph-ET-Examples' needs: #GETExamples class methodsFor: 'animation'.
+	PackageSort sort: 'Graph-ET-Examples' needs: #GETExamples class methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'Graph-ET-Examples' needs: #GETExamples class methodsFor: 'barDiagram'.
+	PackageSort sort: 'Graph-ET-Examples' needs: #GETExamples class methodsFor: 'compositeDiagram'.
+	PackageSort sort: 'Graph-ET-Examples' needs: #GETExamples class methodsFor: 'coolExamples'.
+	PackageSort sort: 'Graph-ET-Examples' needs: #GETExamples class methodsFor: 'lineDiagram'.
+	PackageSort sort: 'Graph-ET-Examples' needs: #GETExamples class methodsFor: 'pieDiagram'.
+	PackageSort sort: 'Graph-ET-Examples' needs: #GETExamples class methodsFor: 'support'.
+	PackageSort sort: 'Graph-ET-Examples' needs: #GETExamples methodsFor: 'barDiagram'.
+	PackageSort sort: 'Graph-ET-Examples' needs: #GETExamples methodsFor: 'execute'.
+	PackageSort sort: 'Graph-ET-Examples' needs: #GETVersion methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Examples' needs: #Object subclass: #DotaHero.
+	PackageSort sort: 'Graph-ET-Examples' needs: #Object subclass: #GETExamples.
+	PackageSort sort: 'Graph-ET-Examples' needs: #Object subclass: #GETVersion.
+	PackageSort sort: 'Graph-ET-Util' needs: #GETDistribution class methodsFor: 'public'.
+	PackageSort sort: 'Graph-ET-Util' needs: #GETDistribution methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'Graph-ET-Util' needs: #GETDistribution methodsFor: 'public'.
+	PackageSort sort: 'Graph-ET-Util' needs: #GETInteractionWrapper methodsFor: 'accessing'.
+	PackageSort sort: 'Graph-ET-Util' needs: #GETInteractionWrapper methodsFor: 'interaction'.
+	PackageSort sort: 'Graph-ET-Util' needs: #Object subclass: #GETDistribution.
+	PackageSort sort: 'Graph-ET-Util' needs: #Object subclass: #GETInteractionWrapper.
+	PackageSort sort: 'Graph-ET-Util-Tests' needs: #GETDistributionTest methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'Graph-ET-Util-Tests' needs: #TestCase subclass: #GETDistributionTest.
+	PackageSort sort: 'ROA' needs: #Dummy methodsFor: 'not yet classified'.
+	PackageSort sort: 'ROA' needs: #Object subclass: #Dummy.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Announcer methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Array class methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Array methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Behavior methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #BlockClosure methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Collection methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Color class methodsFor: 'defaults'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Color class methodsFor: 'initialization'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Color class methodsFor: 'not yet classified'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Color methodsFor: 'accessing'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Color methodsFor: 'comparing'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Color methodsFor: 'not yet classified'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Color methodsFor: 'other'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Color methodsFor: 'private'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Color methodsFor: 'testing'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Dictionary methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Dictionary subclass: #IdentityDictionary.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #HashedCollection methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Number methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Object methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Object subclass: #AmberExtention.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Object subclass: #Color.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Object subclass: #Rectangle.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Point class methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Point methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #ROElement methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #ROEvent class methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #ROEvent methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Rectangle class methodsFor: 'instance creation'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Rectangle methodsFor: 'accessing'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Rectangle methodsFor: 'comparing'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Rectangle methodsFor: 'fmp'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Rectangle methodsFor: 'printing'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Rectangle methodsFor: 'private'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Rectangle methodsFor: 'rectangle functions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Rectangle methodsFor: 'self evaluating'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Rectangle methodsFor: 'testing'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Rectangle methodsFor: 'transforming'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Rectangle methodsFor: 'truncation and round off'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Rectangle methodsFor: 'truncation and roundoff'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #SequenceableCollection methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Set methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Set subclass: #IdentitySet.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #String class methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #String methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #String subclass: #Symbol.
+	PackageSort sort: 'Roassal-Amber-Extensions' needs: #Symbol methodsFor: '*Roassal-Amber-Extensions'.
+	PackageSort sort: 'Roassal-Builder-Punchcard' needs: #ROObject subclass: #ROPunchcardBuilder.
+	PackageSort sort: 'Roassal-Builder-Punchcard' needs: #ROObject subclass: #ROPunchcardExample.
+	PackageSort sort: 'Roassal-Builder-Punchcard' needs: #ROPunchcardBuilder methodsFor: 'accessing'.
+	PackageSort sort: 'Roassal-Builder-Punchcard' needs: #ROPunchcardBuilder methodsFor: 'adding'.
+	PackageSort sort: 'Roassal-Builder-Punchcard' needs: #ROPunchcardBuilder methodsFor: 'initialize-release'.
+	PackageSort sort: 'Roassal-Builder-Punchcard' needs: #ROPunchcardBuilder methodsFor: 'instance creation'.
+	PackageSort sort: 'Roassal-Builder-Punchcard' needs: #ROPunchcardBuilder methodsFor: 'metrics'.
+	PackageSort sort: 'Roassal-Builder-Punchcard' needs: #ROPunchcardBuilder methodsFor: 'rendering'.
+	PackageSort sort: 'Roassal-Builder-Punchcard' needs: #ROPunchcardBuilderTest methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'Roassal-Builder-Punchcard' needs: #ROPunchcardExample methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'Roassal-Builder-Punchcard' needs: #ROTest subclass: #ROPunchcardBuilderTest.
+	PackageSort sort: 'Roassal-Normalizers' needs: #ROMultipleColorLinearNormalizer class methodsFor: 'instance creation'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #ROMultipleColorLinearNormalizer methodsFor: 'accessing'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #ROMultipleColorLinearNormalizer methodsFor: 'initialize-release'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #ROMultipleColorLinearNormalizer methodsFor: 'private-accessing'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONAbstractNormalizer methodsFor: 'accessing'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONAbstractNormalizer subclass: #ROMultipleColorLinearNormalizer.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONAbstractNormalizer subclass: #RONIdentityNormalizer.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONAbstractNormalizer subclass: #RONLinearNormalizer.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONColorLinearNormalizer class methodsFor: 'instance creation'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONColorLinearNormalizer methodsFor: 'accessing'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONColorLinearNormalizer methodsFor: 'initialize-release'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONColorLinearNormalizer methodsFor: 'private'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONColorLinearNormalizer methodsFor: 'translator protocol'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONExplicitIdentityNormalizer class methodsFor: 'instance creation'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONExplicitIdentityNormalizer methodsFor: 'accessing'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONExplicitIdentityNormalizer methodsFor: 'private'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONFontLinearNormalizer methodsFor: 'accessing'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONIdentityNormalizer class methodsFor: 'instance creation'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONIdentityNormalizer methodsFor: 'accessing'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONIdentityNormalizer methodsFor: 'initialize-release'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONIdentityNormalizer methodsFor: 'private'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONIdentityNormalizer subclass: #RONExplicitIdentityNormalizer.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONLinearNormalizer class methodsFor: 'instance creation'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONLinearNormalizer methodsFor: 'accessing'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONLinearNormalizer methodsFor: 'initialize-release'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONLinearNormalizer methodsFor: 'private'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONLinearNormalizer subclass: #RONColorLinearNormalizer.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONLinearNormalizer subclass: #RONFontLinearNormalizer.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONLinearNormalizer subclass: #RONumberLinearNormalizer.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONLinearNormalizer subclass: #ROValueLinearNormalizer.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONumberLinearNormalizer methodsFor: 'accessing'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #RONumberLinearNormalizer methodsFor: 'initialization'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #ROObject subclass: #RONAbstractNormalizer.
+	PackageSort sort: 'Roassal-Normalizers' needs: #ROValueLinearNormalizer methodsFor: 'accessing'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #ROValueLinearNormalizer methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'Roassal-Normalizers' needs: #ROValueLinearNormalizer methodsFor: 'initialize-release'.
+	PackageSort sort: 'Roassal-Plot' needs: #Object subclass: #ROData.
+	PackageSort sort: 'Roassal-Plot' needs: #Object subclass: #ROPlot.
+	PackageSort sort: 'Roassal-Plot' needs: #ROData class methodsFor: 'not yet classified'.
+	PackageSort sort: 'Roassal-Plot' needs: #ROData methodsFor: 'accessors'.
+	PackageSort sort: 'Roassal-Plot' needs: #ROData methodsFor: 'not yet classified'.
+	PackageSort sort: 'Roassal-Plot' needs: #RODataTest methodsFor: 'not yet classified'.
+	PackageSort sort: 'Roassal-Plot' needs: #ROPlot class methodsFor: 'public'.
+	PackageSort sort: 'Roassal-Plot' needs: #ROPlot methodsFor: 'not yet classified'.
+	PackageSort sort: 'Roassal-Plot' needs: #ROTest subclass: #RODataTest.
+	PackageSort sort: 'RoassalD3' needs: #Object subclass: #ROMondrianViewBuilder.
+	PackageSort sort: 'RoassalD3' needs: #Object subclass: #ROSVGCanvas.
+	PackageSort sort: 'RoassalD3' needs: #ROMondrianViewBuilder methodsFor: 'not yet classified'.
+	PackageSort sort: 'RoassalD3' needs: #ROSVGCanvas methodsFor: 'not yet classified'.
+	PackageSort sort: 'RoassalExtras-Geo' needs: #ROCityShapeBuilder methodsFor: 'accessing'.
+	PackageSort sort: 'RoassalExtras-Geo' needs: #ROCityShapeBuilder methodsFor: 'adding'.
+	PackageSort sort: 'RoassalExtras-Geo' needs: #ROCityShapeBuilder methodsFor: 'configuration'.
+	PackageSort sort: 'RoassalExtras-Geo' needs: #ROCityShapeBuilder methodsFor: 'initialize-release'.
+	PackageSort sort: 'RoassalExtras-Geo' needs: #ROCityShapeBuilder methodsFor: 'normalizers'.
+	PackageSort sort: 'RoassalExtras-Geo' needs: #ROCityShapeBuilder methodsFor: 'public'.
+	PackageSort sort: 'RoassalExtras-Geo' needs: #ROCityShapeBuilder methodsFor: 'shapes - nodes'.
+	PackageSort sort: 'RoassalExtras-Geo' needs: #ROInteractionBuilder methodsFor: 'as yet unclassified'.
+	PackageSort sort: 'RoassalExtras-Geo' needs: #ROMapBuilder methodsFor: 'accessing'.
+	PackageSort sort: 'RoassalExtras-Geo' needs: #ROMapBuilder methodsFor: 'adding'.
+	PackageSort sort: 'RoassalExtras-Geo' needs: #ROMapBuilder methodsFor: 'example'.
+	PackageSort sort: 'RoassalExtras-Geo' needs: #ROMapBuilder methodsFor: 'initialize-release'.
+	PackageSort sort: 'RoassalExtras-Geo' needs: #ROMapBuilder methodsFor: 'instance creation'.
+	PackageSort sort: 'RoassalExtras-Geo' needs: #ROMapBuilder methodsFor: 'utility'.
+	PackageSort sort: 'RoassalExtras-Geo' needs: #ROObject subclass: #ROCityShapeBuilder.
+	PackageSort sort: 'RoassalExtras-Geo' needs: #ROObject subclass: #ROInteractionBuilder.
+	PackageSort sort: 'RoassalExtras-Geo' needs: #ROObject subclass: #ROMapBuilder.
+	PackageSort sort: 'RoassalExtras-Geo-Tests' needs: #ROFranceMapBuilderTest methodsFor: 'city shape builder'.
+	PackageSort sort: 'RoassalExtras-Geo-Tests' needs: #ROFranceMapBuilderTest methodsFor: 'events'.
+	PackageSort sort: 'RoassalExtras-Geo-Tests' needs: #ROFranceMapBuilderTest methodsFor: 'running'.
+	PackageSort sort: 'RoassalExtras-Geo-Tests' needs: #ROFranceMapBuilderTest methodsFor: 'tests'.
+	PackageSort sort: 'RoassalExtras-Geo-Tests' needs: #ROMapBuilderTest methodsFor: 'running'.
+	PackageSort sort: 'RoassalExtras-Geo-Tests' needs: #ROMapBuilderTest methodsFor: 'tests'.
+	PackageSort sort: 'RoassalExtras-Geo-Tests' needs: #ROTest subclass: #ROFranceMapBuilderTest.
+	PackageSort sort: 'RoassalExtras-Geo-Tests' needs: #ROTest subclass: #ROMapBuilderTest.

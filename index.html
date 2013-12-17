@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My First Amber Project</title>
+    <script type='text/javascript' src='support/amber.js'></script>
+    <script type='text/javascript' src='support/requirejs/require.min.js'></script>
+    <script type="text/javascript">
+      require.config({ paths: {
+        'roamber': 'projects/roamber/js', //mapping compiled .js files
+        'roamber/_source': 'projects/roamber/st' //mapping smalltalk source files
+      }});
+      require(['amber/devel', // 'com_example_hello/HelloApp'
+		],
+		function (smalltalk) {
+        smalltalk.defaultAmdNamespace = "roamber"; //used for all new packages in IDE
+        smalltalk.initialize();
+	  $(function() {
+	    require('amber_vm/smalltalk').Browser._open()
+	  });
+      });
+    </script>
+  </head>
+  <body>
+	<p>Open <a href="roassal-index.html">ROASSAL</a></p>
+  </body>
+</html>
