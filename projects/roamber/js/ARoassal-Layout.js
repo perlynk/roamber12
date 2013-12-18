@@ -1095,42 +1095,29 @@ category: 'hook',
 fn: function (elements){
 var self=this;
 var pointer,lineItemCount,lineItemSize,maxLastLineHeight,originalGapLeft,originalGapTop,parent,oldParentStrategy;
-function $ROPermissiveParent(){return smalltalk.ROPermissiveParent||(typeof ROPermissiveParent=="undefined"?nil:ROPermissiveParent)}
 return smalltalk.withContext(function($ctx1) { 
-var $1,$2,$4,$6,$5,$3,$7,$8,$9,$10,$11;
-originalGapLeft=self._paddingLeftFor_(elements);
-originalGapTop=self._paddingTopFor_(elements);
+var $2,$4,$3,$1,$5,$6,$7,$8;
+originalGapLeft=(5);
+originalGapTop=(5);
 pointer=_st(originalGapLeft).__at(originalGapTop);
 $ctx1.sendIdx["@"]=1;
 lineItemSize=_st(self._lineItemsCountBlock())._roValue_(elements);
 lineItemCount=(0);
 maxLastLineHeight=(0);
-$1=_st(elements)._anyOne();
-$ctx1.sendIdx["anyOne"]=1;
-parent=_st($1)._parent();
-$ctx1.sendIdx["parent"]=1;
-$2=_st(parent)._isView();
-$ctx1.sendIdx["isView"]=1;
-if(! smalltalk.assert($2)){
-oldParentStrategy=_st(_st(_st(elements)._anyOne())._parent())._resizeStrategy();
-oldParentStrategy;
-_st(parent)._resizeStrategy_(_st(_st($ROPermissiveParent())._new())._padding_(_st(oldParentStrategy)._padding()));
-$ctx1.sendIdx["resizeStrategy:"]=1;
-};
 _st(elements)._do_((function(element){
 return smalltalk.withContext(function($ctx2) {
 _st(self["@translator"])._translate_to_(element,pointer);
-$4=_st(_st(pointer)._x()).__plus(_st(element)._width());
+$2=_st(_st(pointer)._x()).__plus(_st(element)._width());
 $ctx2.sendIdx["+"]=2;
-$6=self._gapSize();
+$4=self._gapSize();
 $ctx2.sendIdx["gapSize"]=1;
-$5=_st($6).__star((2));
+$3=_st($4).__star((2));
 $ctx2.sendIdx["*"]=1;
-$3=_st($4).__plus($5);
+$1=_st($2).__plus($3);
 $ctx2.sendIdx["+"]=1;
-$7=_st(pointer)._y();
+$5=_st(pointer)._y();
 $ctx2.sendIdx["y"]=1;
-pointer=_st($3).__at($7);
+pointer=_st($1).__at($5);
 $ctx2.sendIdx["@"]=2;
 pointer;
 lineItemCount=_st(lineItemCount).__plus((1));
@@ -1138,12 +1125,12 @@ $ctx2.sendIdx["+"]=3;
 lineItemCount;
 maxLastLineHeight=_st(maxLastLineHeight)._max_(_st(element)._height());
 maxLastLineHeight;
-$8=_st(lineItemCount).__gt_eq(lineItemSize);
-if(smalltalk.assert($8)){
-$9=originalGapLeft;
-$10=_st(_st(_st(pointer)._y()).__plus(_st(self._gapSize()).__star((2)))).__plus(maxLastLineHeight);
+$6=_st(lineItemCount).__gt_eq(lineItemSize);
+if(smalltalk.assert($6)){
+$7=originalGapLeft;
+$8=_st(_st(_st(pointer)._y()).__plus(_st(self._gapSize()).__star((2)))).__plus(maxLastLineHeight);
 $ctx2.sendIdx["+"]=4;
-pointer=_st($9).__at($10);
+pointer=_st($7).__at($8);
 pointer;
 maxLastLineHeight=(0);
 maxLastLineHeight;
@@ -1151,17 +1138,12 @@ lineItemCount=(0);
 lineItemCount;
 };
 return self._step();
-}, function($ctx2) {$ctx2.fillBlock({element:element},$ctx1,2)})}));
-$11=_st(parent)._isView();
-if(! smalltalk.assert($11)){
-_st(parent)._resizeStrategy_(oldParentStrategy);
-_st(parent)._adjustSizeIfNecessary();
-};
+}, function($ctx2) {$ctx2.fillBlock({element:element},$ctx1,1)})}));
 return self}, function($ctx1) {$ctx1.fill(self,"doExecute:",{elements:elements,pointer:pointer,lineItemCount:lineItemCount,lineItemSize:lineItemSize,maxLastLineHeight:maxLastLineHeight,originalGapLeft:originalGapLeft,originalGapTop:originalGapTop,parent:parent,oldParentStrategy:oldParentStrategy},smalltalk.ROGridLayout)})},
 args: ["elements"],
-source: "doExecute: elements\x0a\x09| pointer lineItemCount lineItemSize maxLastLineHeight originalGapLeft originalGapTop parent oldParentStrategy |\x0a\x09originalGapLeft := self paddingLeftFor: elements.\x0a\x09originalGapTop := self paddingTopFor: elements.\x0a\x09\x0a\x09pointer := originalGapLeft @ originalGapTop.\x0a\x09lineItemSize := self lineItemsCountBlock roValue: elements.\x0a\x09lineItemCount := 0.\x0a\x09maxLastLineHeight := 0.\x0a\x0a\x09\x22We are here assuming all the elements have the same parent\x22\x0a\x09parent := elements anyOne parent.\x0a\x09parent isView ifFalse:\x0a\x09\x09[oldParentStrategy := elements anyOne parent resizeStrategy.\x0a\x09\x09parent resizeStrategy: (ROPermissiveParent new padding: oldParentStrategy padding)].\x0a\x0a\x09elements\x0a\x09\x09do: [ :element | \x0a\x09\x09\x09translator translate: element to: pointer.\x0a\x09\x09\x09pointer := (pointer x + element width + (self gapSize * 2)) @ pointer y.\x0a\x09\x09\x09lineItemCount := lineItemCount + 1.\x0a\x09\x09\x09maxLastLineHeight := maxLastLineHeight max: element height.\x0a\x09\x09\x09lineItemCount >= lineItemSize\x0a\x09\x09\x09\x09ifTrue: [ \x0a\x09\x09\x09\x09\x09pointer := originalGapLeft @ (pointer y + (self gapSize * 2) + maxLastLineHeight).\x0a\x09\x09\x09\x09\x09\x0a\x09\x09\x09\x09\x09maxLastLineHeight := 0.\x0a\x09\x09\x09\x09\x09lineItemCount := 0 ].\x0a\x09\x09\x09self step ].\x0a\x09\x09\x0a\x09\x22We set the old strategy and adjust the size of the parent\x22\x0a\x09parent isView ifFalse:\x0a\x09\x09[parent resizeStrategy: oldParentStrategy.\x0a\x09\x09parent adjustSizeIfNecessary].",
-messageSends: ["paddingLeftFor:", "paddingTopFor:", "@", "roValue:", "lineItemsCountBlock", "parent", "anyOne", "ifFalse:", "isView", "resizeStrategy", "resizeStrategy:", "padding:", "new", "padding", "do:", "translate:to:", "+", "x", "width", "*", "gapSize", "y", "max:", "height", "ifTrue:", ">=", "step", "adjustSizeIfNecessary"],
-referencedClasses: ["ROPermissiveParent"]
+source: "doExecute: elements\x0a\x09| pointer lineItemCount lineItemSize maxLastLineHeight originalGapLeft originalGapTop parent oldParentStrategy |\x0a\x09originalGapLeft := 5. \x22self paddingLeftFor: elements.\x22\x0a\x09originalGapTop := 5. \x22self paddingTopFor: elements.\x22\x0a\x09\x0a\x09pointer := originalGapLeft @ originalGapTop.\x0a\x09lineItemSize := self lineItemsCountBlock roValue: elements.\x0a\x09lineItemCount := 0.\x0a\x09maxLastLineHeight := 0.\x0a\x0a\x09\x22We are here assuming all the elements have the same parent\x22\x0a\x09\x22parent := elements anyOne parent.\x0a\x09parent isView ifFalse:\x0a\x09\x09[oldParentStrategy := elements anyOne parent resizeStrategy.\x0a\x09\x09parent resizeStrategy: (ROPermissiveParent new padding: oldParentStrategy padding)].\x22\x0a\x0a\x09elements\x0a\x09\x09do: [ :element | \x0a\x09\x09\x09translator translate: element to: pointer.\x0a\x09\x09\x09pointer := (pointer x + element width + (self gapSize * 2)) @ pointer y.\x0a\x09\x09\x09lineItemCount := lineItemCount + 1.\x0a\x09\x09\x09maxLastLineHeight := maxLastLineHeight max: element height.\x0a\x09\x09\x09lineItemCount >= lineItemSize\x0a\x09\x09\x09\x09ifTrue: [ \x0a\x09\x09\x09\x09\x09pointer := originalGapLeft @ (pointer y + (self gapSize * 2) + maxLastLineHeight).\x0a\x09\x09\x09\x09\x09\x0a\x09\x09\x09\x09\x09maxLastLineHeight := 0.\x0a\x09\x09\x09\x09\x09lineItemCount := 0 ].\x0a\x09\x09\x09self step ].\x0a\x09\x09\x0a\x09\x22We set the old strategy and adjust the size of the parent\x22\x0a\x09\x22parent isView ifFalse:\x0a\x09\x09[parent resizeStrategy: oldParentStrategy.\x0a\x09\x09parent adjustSizeIfNecessary].\x22",
+messageSends: ["@", "roValue:", "lineItemsCountBlock", "do:", "translate:to:", "+", "x", "width", "*", "gapSize", "y", "max:", "height", "ifTrue:", ">=", "step"],
+referencedClasses: []
 }),
 smalltalk.ROGridLayout);
 

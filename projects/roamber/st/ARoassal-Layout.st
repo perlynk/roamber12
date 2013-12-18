@@ -390,8 +390,8 @@ lineItemsCountBlock
 
 doExecute: elements
 	| pointer lineItemCount lineItemSize maxLastLineHeight originalGapLeft originalGapTop parent oldParentStrategy |
-	originalGapLeft := self paddingLeftFor: elements.
-	originalGapTop := self paddingTopFor: elements.
+	originalGapLeft := 5. "self paddingLeftFor: elements."
+	originalGapTop := 5. "self paddingTopFor: elements."
 	
 	pointer := originalGapLeft @ originalGapTop.
 	lineItemSize := self lineItemsCountBlock roValue: elements.
@@ -399,10 +399,10 @@ doExecute: elements
 	maxLastLineHeight := 0.
 
 	"We are here assuming all the elements have the same parent"
-	parent := elements anyOne parent.
+	"parent := elements anyOne parent.
 	parent isView ifFalse:
 		[oldParentStrategy := elements anyOne parent resizeStrategy.
-		parent resizeStrategy: (ROPermissiveParent new padding: oldParentStrategy padding)].
+		parent resizeStrategy: (ROPermissiveParent new padding: oldParentStrategy padding)]."
 
 	elements
 		do: [ :element | 
@@ -419,9 +419,9 @@ doExecute: elements
 			self step ].
 		
 	"We set the old strategy and adjust the size of the parent"
-	parent isView ifFalse:
+	"parent isView ifFalse:
 		[parent resizeStrategy: oldParentStrategy.
-		parent adjustSizeIfNecessary].
+		parent adjustSizeIfNecessary]."
 ! !
 
 ROLayout subclass: #ROAbstractLineLayout
