@@ -14,6 +14,7 @@
 	<script type='text/javascript' src='support/requirejs/require.min.js'></script>
 	<script type='text/javascript' src='support/amber.js'></script>
     <script type='text/javascript'>
+		var smalltalk = ''; // the global smalltalk, to be initialized
 		require.config({ paths: {
         	'roamber' : 'projects/roamber/js',
         	'roamber/_source' : 'projects/roamber/st'
@@ -38,7 +39,6 @@
 			'roamber/Roassal-Builder-Punchcard',
 			'roamber/RoassalExtras-Geo',
 			'roamber/RoassalExtras-Geo-Tests',
-			'roamber/RoassalExtras-Geo-Tests',
 			'roamber/Roassal-Plot',
 
 			'roamber/Graph-ET-Core',
@@ -48,7 +48,8 @@
 			'roamber/Graph-ET-Util',
 			'roamber/Graph-ET-Util-Tests',
 		],
-        function(smalltalk) {
+        function(st) {
+			smalltalk = st; // set the global smalltalk
 			// -- 8 --
 			smalltalk.defaultAmdNamespace = 'roamber';
 			// -- 9 --
@@ -56,7 +57,7 @@
 			// -- 10 --
 			// smalltalk.Browser._open();
 			smalltalk.RODemo._init();
-        }) 
+        });
       window.onbeforeunload = function() {
           return 'Do you want to close Amber? All uncommitted changes will be lost.';
         };
