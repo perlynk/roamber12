@@ -1210,6 +1210,53 @@ smalltalk.ROExample);
 
 smalltalk.addMethod(
 smalltalk.method({
+selector: "similarityMatrix",
+category: 'demo',
+fn: function (){
+var self=this;
+function $SimilarityMatrix(){return smalltalk.SimilarityMatrix||(typeof SimilarityMatrix=="undefined"?nil:SimilarityMatrix)}
+function $Collection(){return smalltalk.Collection||(typeof Collection=="undefined"?nil:Collection)}
+function $Browser(){return smalltalk.Browser||(typeof Browser=="undefined"?nil:Browser)}
+return smalltalk.withContext(function($ctx1) { 
+var $1,$2,$3,$5,$6,$4,$7;
+$1=_st($SimilarityMatrix())._new();
+_st($1)._on_by_withAction_(_st(_st($Collection())._allSubclasses())._sort_((function(a,b){
+return smalltalk.withContext(function($ctx2) {
+$2=_st(a)._numberOfMethods();
+$ctx2.sendIdx["numberOfMethods"]=1;
+$3=_st(b)._numberOfMethods();
+$ctx2.sendIdx["numberOfMethods"]=2;
+return _st($2).__lt($3);
+}, function($ctx2) {$ctx2.fillBlock({a:a,b:b},$ctx1,1)})})),(function(classA,classB){
+var a,b;
+return smalltalk.withContext(function($ctx2) {
+a=_st(classA)._numberOfMethods();
+$ctx2.sendIdx["numberOfMethods"]=3;
+a;
+b=_st(classB)._numberOfMethods();
+b;
+$5=_st(a)._min_(b);
+$6=_st(_st(b)._max_(a))._max_((1));
+$ctx2.sendIdx["max:"]=1;
+$4=_st($5).__slash($6);
+return _st($4)._asFloat();
+}, function($ctx2) {$ctx2.fillBlock({classA:classA,classB:classB,a:a,b:b},$ctx1,2)})}),(function(classA,classB){
+return smalltalk.withContext(function($ctx2) {
+_st($Browser())._openOn_(classA);
+$ctx2.sendIdx["openOn:"]=1;
+return _st($Browser())._openOn_(classB);
+}, function($ctx2) {$ctx2.fillBlock({classA:classA,classB:classB},$ctx1,3)})}));
+$7=_st($1)._viewMatrix();
+return self}, function($ctx1) {$ctx1.fill(self,"similarityMatrix",{},smalltalk.ROExample)})},
+args: [],
+source: "similarityMatrix\x0a\x09\x22show which Collection subclasses have a similar number of methods\x22\x0a\x09SimilarityMatrix new\x0a\x09\x09on: (Collection allSubclasses\x0a\x09\x09\x09sort: [:a :b | a numberOfMethods < b numberOfMethods])\x0a\x09\x09by: [ :classA : classB | |a b|\x0a\x09\x09\x09a := classA numberOfMethods.\x0a\x09\x09\x09b := classB numberOfMethods.\x0a\x09\x09\x09((a min: b) / ((b max: a) max: 1)) asFloat ]\x0a\x09\x09withAction: [:classA :classB |\x0a\x09\x09\x09Browser openOn: classA.\x0a\x09\x09\x09Browser openOn: classB ] ;\x0a\x09\x09viewMatrix",
+messageSends: ["on:by:withAction:", "new", "sort:", "allSubclasses", "<", "numberOfMethods", "asFloat", "/", "min:", "max:", "openOn:", "viewMatrix"],
+referencedClasses: ["SimilarityMatrix", "Collection", "Browser"]
+}),
+smalltalk.ROExample);
+
+smalltalk.addMethod(
+smalltalk.method({
 selector: "theWorld",
 category: 'not yet classified',
 fn: function (){
