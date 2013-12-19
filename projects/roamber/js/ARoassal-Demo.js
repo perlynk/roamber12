@@ -1249,7 +1249,7 @@ return _st($Browser())._openOn_(classB);
 $7=_st($1)._viewMatrix();
 return self}, function($ctx1) {$ctx1.fill(self,"similarityMatrix",{},smalltalk.ROExample)})},
 args: [],
-source: "similarityMatrix\x0a\x09\x22show which Collection subclasses have a similar number of methods\x22\x0a\x09SimilarityMatrix new\x0a\x09\x09on: (Collection allSubclasses\x0a\x09\x09\x09sort: [:a :b | a numberOfMethods < b numberOfMethods])\x0a\x09\x09by: [ :classA : classB | |a b|\x0a\x09\x09\x09a := classA numberOfMethods.\x0a\x09\x09\x09b := classB numberOfMethods.\x0a\x09\x09\x09((a min: b) / ((b max: a) max: 1)) asFloat ]\x0a\x09\x09withAction: [:classA :classB |\x0a\x09\x09\x09Browser openOn: classA.\x0a\x09\x09\x09Browser openOn: classB ] ;\x0a\x09\x09viewMatrix",
+source: "similarityMatrix\x0a\x22show which Collection subclasses\x0ahave a similar number of methods\x22\x0aSimilarityMatrix new\x0a\x09on: (Collection allSubclasses\x0a\x09\x09sort: [:a :b |\x0a\x09\x09\x09a numberOfMethods\x0a\x09\x09\x09< b numberOfMethods])\x0a\x09by: [ :classA : classB | |a b|\x0a\x09\x09a := classA numberOfMethods.\x0a\x09\x09b := classB numberOfMethods.\x0a\x09\x09((a min: b) / ((b max: a) max: 1))\x0a\x09\x09\x09asFloat ]\x0a\x09withAction: [:classA :classB |\x0a\x09\x09Browser openOn: classA.\x0a\x09\x09Browser openOn: classB ] ;\x0a\x09viewMatrix",
 messageSends: ["on:by:withAction:", "new", "sort:", "allSubclasses", "<", "numberOfMethods", "asFloat", "/", "min:", "max:", "openOn:", "viewMatrix"],
 referencedClasses: ["SimilarityMatrix", "Collection", "Browser"]
 }),
