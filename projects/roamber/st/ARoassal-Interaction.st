@@ -35,136 +35,6 @@ key
 	^ self
 ! !
 
-ROInteraction subclass: #ROAbstractPopup
-	instanceVariableNames: ''
-	package: 'ARoassal-Interaction'!
-
-!ROAbstractPopup methodsFor: 'not yet classified'!
-
-createPopupFor: element
-	| popupElement popupPosition |
-	popupElement := self createElementFor: element.
-	"	popupElement := (ROElement on: 'toasty!!') + ROBox."
-	
-	" positioning "
-	popupElement translateTo: (self popupPositionFor: element).
-
-"	popupElement on: ROMouseLeave do: [ :e | popupElement view remove: popupElement ifAbsent: [  ] ]."
-	popupElement on: ROMouseDragged do: [ :e | 
-		Transcript show: 'ROMouseDragged event catched',(String cr).
-		popupElement svgElement 
-				translate: (element position x - (popupElement position x) )
-				y: (element position y - (popupElement position y) ).
-		popupElement translateTo: (self popupPositionFor: (e element)).
-
-	].
-
-	(self receivingViewFor: element) add: popupElement.	
-
-
-"	self popups add: popupElement."
-
-	^ popupElement
-!
-
-initializeElement: element
-	| svgElement popupElement     |
-	svgElement := element shape svgElement.
-	
-	popupElement := self createPopupFor: element.
-	
-	element signalUpdate.
-	popupElement hide.
-
-	
-	element on: ROMouseEnter 
-		do: [ :evt |
-
-			popupElement translateTo: evt position.
-			popupElement signalUpdate.
-
-			popupElement show.
-
-	].
-	element on: ROMouseLeave 
-		do: [:evt |
-		popupElement hide.
-	].
-			
-	element on: ROMouseDragging 
-		do: [ :evt | 
-
-			popupElement hide.		
-	].	
-
-	element on: ROMouseDragged 
-		do: [ :evt | 
-			popupElement hide.		
-	].
-!
-
-popupPositionFor: element
-	^  (element position x + 10)@(element position y + 10).
-!
-
-popups
-	^self class popups
-!
-
-receivingViewFor: element
-	^ element view
-!
-
-removeAllPopups
-	
-	self popups do: [ :p | self removePopup: p ].
-	self class resetPopups
-!
-
-removePopup: el
-	el ifNotNil: [ el remove ].
-! !
-
-ROAbstractPopup class instanceVariableNames: 'popups'!
-
-!ROAbstractPopup class methodsFor: 'not yet classified'!
-
-popups
-
-	^ popups ifNil: [ popups := OrderedCollection new ]
-!
-
-resetPopups
-
-	popups := nil
-! !
-
-ROAbstractPopup subclass: #ROPopup
-	instanceVariableNames: 'text'
-	package: 'ARoassal-Interaction'!
-
-!ROPopup methodsFor: 'not yet classified'!
-
-createElementFor: anElement
-
-	^ (ROLabel new elementOn: (text roValue: anElement model)) color: Color black
-!
-
-initialize 
-	super initialize.
-	text := #yourself.
-!
-
-text: textBlock
-	text := textBlock
-! !
-
-!ROPopup class methodsFor: 'not yet classified'!
-
-text: aString
-	^ self new text: aString.
-! !
-
 ROInteraction subclass: #ROClickable
 	instanceVariableNames: ''
 	package: 'ARoassal-Interaction'!
@@ -244,8 +114,19 @@ initialize
 
 initializeElement: element
 
-	element on: ROMouseEnter do: [:evt | evt element color: (self color). evt element view signalUpdate].
-	element on: ROMouseLeave do: [:evt | evt element color: (element shape class defaultColor). evt element view signalUpdate].
+	element 
+		on:  ROMouseEnter 
+		do: [:evt | 
+					evt element color: (self color). 
+					evt element view signalUpdate
+	].
+	
+	element 
+		on: ROMouseLeave 
+		do: [:evt | 
+					evt element color: (element shape class defaultColor). 
+					evt element view signalUpdate
+	].
 ! !
 
 !ROHighlight class methodsFor: 'not yet classified'!
@@ -282,5 +163,82 @@ initializeElement: element
 		ev := ROMouseLeave new.
 		element announce: ev.
 	].
+! !
+
+ROInteraction subclass: #ROPopup
+	instanceVariableNames: 'text'
+	package: 'ARoassal-Interaction'!
+!ROPopup commentStamp!
+OLD ROPopup!
+
+!ROPopup methodsFor: 'not yet classified'!
+
+createElementFor: anElement
+
+	^ (ROLabel new elementOn: (text roValue: anElement model)) color: Color black
+!
+
+createPopupFor: element
+	| popupElement popupPosition |
+	popupElement := self createElementFor: element.
+
+	" Add it to the view "
+	(self receivingViewFor: element) add: popupElement.	
+
+	^ popupElement
+!
+
+initialize 
+	super initialize.
+	text := #yourself.
+!
+
+initializeElement: element
+	|  popupElement     |
+	
+	popupElement := self createPopupFor: element.
+	
+	popupElement signalUpdate.
+	popupElement hide.
+
+	
+	element on: ROMouseEnter 
+		do: [ :evt |
+
+			popupElement translateTo: evt position.
+			popupElement signalUpdate.
+
+			popupElement show.
+
+	].
+	element on: ROMouseLeave 
+		do: [:evt |
+		popupElement hide.
+	].
+			
+	element on: ROMouseDragging 
+		do: [ :evt | 
+
+			popupElement hide.		
+	].	
+
+	element on: ROMouseDragged 
+		do: [ :evt | 
+			popupElement hide.		
+	].
+!
+
+receivingViewFor: element
+	^ element view
+!
+
+text: textBlock
+	text := textBlock
+! !
+
+!ROPopup class methodsFor: 'not yet classified'!
+
+text: aString
+	^ self new text: aString.
 ! !
 
