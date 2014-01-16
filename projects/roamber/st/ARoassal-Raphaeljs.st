@@ -417,7 +417,7 @@ initialize
 !
 
 paper
-	< var paper = Raphael("roassal-canvas", 1600 , 900); return paper;>
+	< var paper = Raphael("roassal-canvas", 1600 , 900); paper.canvas.id = 'roassal-svg-canvas'; return paper;>
 ! !
 
 RORaphaelCanvas class instanceVariableNames: 'paper'!
@@ -434,6 +434,8 @@ new
 !
 
 origin
-	^ (self canvas canvas offsetLeft) @ (self canvas canvas offsetTop)
+	| canvasElement |
+	canvasElement := '#roassal-svg-canvas' asJQuery.
+	^ (canvasElement offset left) @ (canvasElement offset top)
 ! !
 

@@ -160,49 +160,6 @@ Object subclass: #ROLayout
 	instanceVariableNames: 'translator affectedNodes'
 	package: 'ARoassal-Layout'!
 
-!ROLayout methodsFor: 'not yet classified'!
-
-applyOn: elements
-	
-	self executeOnElements: elements
-!
-
-doInitialize: elements
-	"Method executed before beginning the layout. Useful when the graph to be ordered need to be prepared"
-	"self announce: (ROLayoutBegin new elements: elements)."
-!
-
-doPost: elements
-	"Method executed after performing the layout"
-	"self announce: (ROLayoutEnd new elements: elements)."
-!
-
-executeOnElements: elements 
-	"Execute the layout, myself, on the elements"
-		
-	self doInitialize: elements.
-	self doExecute: elements asOrderedCollection.
-	self doPost: elements.
-!
-
-initialize
-	translator := ROLayoutTranslator default.
-!
-
-on: elements
-	self applyOn: elements
-!
-
-step
-"
-	currentIteraction := currentIteraction + 1.
-	(currentIteraction \\ self iterationsToSendEvent) = 0 
-		ifTrue: [ self announce: (ROLayoutStep new 
-											currentIteration: currentIteraction;
-											maxInterations: maxInterations) ].
-"
-! !
-
 !ROLayout class methodsFor: 'not yet classified'!
 
 on: aCollection
@@ -390,8 +347,8 @@ lineItemsCountBlock
 
 doExecute: elements
 	| pointer lineItemCount lineItemSize maxLastLineHeight originalGapLeft originalGapTop parent oldParentStrategy |
-	originalGapLeft := 5. "self paddingLeftFor: elements."
-	originalGapTop := 5. "self paddingTopFor: elements."
+	originalGapLeft := self paddingLeftFor: elements.
+	originalGapTop := self paddingTopFor: elements.
 	
 	pointer := originalGapLeft @ originalGapTop.
 	lineItemSize := self lineItemsCountBlock roValue: elements.
@@ -399,10 +356,10 @@ doExecute: elements
 	maxLastLineHeight := 0.
 
 	"We are here assuming all the elements have the same parent"
-	"parent := elements anyOne parent.
+	parent := elements anyOne parent.
 	parent isView ifFalse:
 		[oldParentStrategy := elements anyOne parent resizeStrategy.
-		parent resizeStrategy: (ROPermissiveParent new padding: oldParentStrategy padding)]."
+		parent resizeStrategy: (ROPermissiveParent new padding: oldParentStrategy padding)].
 
 	elements
 		do: [ :element | 
@@ -419,9 +376,9 @@ doExecute: elements
 			self step ].
 		
 	"We set the old strategy and adjust the size of the parent"
-	"parent isView ifFalse:
+	parent isView ifFalse:
 		[parent resizeStrategy: oldParentStrategy.
-		parent adjustSizeIfNecessary]."
+		parent adjustSizeIfNecessary].
 ! !
 
 ROLayout subclass: #ROAbstractLineLayout
@@ -429,6 +386,11 @@ ROLayout subclass: #ROAbstractLineLayout
 	package: 'ARoassal-Layout'!
 
 !ROAbstractLineLayout methodsFor: 'not yet classified'!
+
+alignLeft
+	
+	alignment := #left
+!
 
 alignTop
 	
@@ -443,6 +405,23 @@ alignment
 alignment: anObject
 	
 	alignment := anObject
+!
+
+doExecute: elements 
+	| pointer delta |
+	horizontallyStretchable ifTrue: 
+		[ self doStretchHorizontal: elements ].
+	verticallyStretchable ifTrue: 
+		[ self doStretchVertical: elements ].
+	pointer := self positionOriginalPointer: elements.
+	elements do: 
+		[ :element |
+		delta := self deltaFor: element.
+		translator translate: element to: pointer - delta.
+		pointer := self 
+					movePointer: pointer
+					accordingToFigure: element.
+		self step ].
 !
 
 horizontalGap
@@ -463,6 +442,11 @@ initialize
 	horizontalOutGap := 5.
 	verticalOutGap := 5.
 	horizontallyStretchable := verticallyStretchable := false
+!
+
+verticalGap
+	
+	^verticalGap
 !
 
 verticalOutGap
@@ -527,6 +511,98 @@ positionOriginalPointer: aGraph
 		[ maxHeight := aGraph nodes maxValue: #height.
 		delta := maxHeight / 2.0 ].
 	^ self horizontalOutGap @ (self verticalOutGap + delta)
+! !
+
+ROAbstractLineLayout subclass: #ROVerticalLineLayout
+	instanceVariableNames: ''
+	package: 'ARoassal-Layout'!
+!ROVerticalLineLayout commentStamp!
+A ROVerticalLineLayout locates all the elements vertically!
+
+!ROVerticalLineLayout methodsFor: 'hook'!
+
+deltaFor: aNodeFigure
+	
+	| delta |
+	delta := 0.
+	self alignment == #right ifTrue: [delta := aNodeFigure width].
+	self alignment == #center ifTrue: [delta := aNodeFigure width / 2.0].
+	^delta @ 0
+!
+
+doCenter: aGraph 
+
+ 	| midWidest step |
+	midWidest := aGraph nodes 
+		inject: 0
+		into: [ :m :el | m max: (el bounds width )].
+	midWidest := midWidest / 2.
+	aGraph nodes do: [ :node | 
+		step := (midWidest - (node bounds width /2)) asInteger @ 0.
+		node bounds origin: (node bounds origin + step).
+		node bounds corner: (node bounds corner + step).
+	]
+!
+
+doStretchHorizontal: aCollectionOfElements 
+	
+ 	| parent parentBounds |
+	aCollectionOfElements isNil ifTrue: [ ^ self "nothing to do" ].
+	parent := aCollectionOfElements anyOne parent.
+	parent isView ifTrue: [ ^ self "ROView does not have bounds" ].
+	parentBounds := parent bounds.
+
+	aCollectionOfElements do: [ :element | 
+		element width: parentBounds width ]
+!
+
+doStretchVertical: aCollectionOfElements 
+
+ 	| parent parentBounds addedHeight parentBoundsHeight runningIndex newHeight |
+
+	aCollectionOfElements isEmpty ifTrue: [ ^ self "nothing to do" ].
+	parent := aCollectionOfElements anyOne parent.
+	parent isView ifTrue: [ ^ self "ROView does not have bounds" ].
+	parentBounds := parent bounds.
+
+	addedHeight := aCollectionOfElements 
+		inject: 0
+		into: [ :m :el | m + el height ].
+
+	parentBoundsHeight := parentBounds height.
+	"parentBoundsHeight := parentBoundsHeight - ((aCollectionOfElements size - 1) * verticalGap) - (2 * verticalOutGap)."
+	
+	runningIndex := 0.
+	parentBounds height > addedHeight
+		ifTrue: [ aCollectionOfElements do: [ :element | 
+						newHeight := (element height * parentBoundsHeight / addedHeight) asInteger.
+						element height: newHeight.
+						runningIndex := runningIndex + newHeight + verticalGap ] ]
+!
+
+movePointer: pointer accordingToFigure: aNodeFigure
+	
+	^ pointer setX: pointer x setY: pointer y + aNodeFigure height + self verticalGap
+!
+
+positionOriginalPointer: elements 
+	| maxWidth delta |
+	delta := 0.
+	self alignment == #right ifTrue: 
+		[ maxWidth := elements maxValue: #width.
+		delta := maxWidth ].
+	self alignment == #center ifTrue: 
+		[ maxWidth := elements maxValue: #width.
+		delta := maxWidth / 2.0 ].
+	^ (self horizontalOutGap + delta) @ self verticalOutGap
+! !
+
+!ROVerticalLineLayout methodsFor: 'initialize-release'!
+
+initialize
+	
+	super initialize.
+	self alignLeft
 ! !
 
 ROLayout subclass: #ROEdgeDrivenLayout

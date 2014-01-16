@@ -428,6 +428,79 @@ smalltalk.ROExample);
 
 smalltalk.addMethod(
 smalltalk.method({
+selector: "gdp",
+category: 'demo',
+fn: function (){
+var self=this;
+var view,cityBuilder,values,graphBuilder,color;
+function $ROView(){return smalltalk.ROView||(typeof ROView=="undefined"?nil:ROView)}
+function $Color(){return smalltalk.Color||(typeof Color=="undefined"?nil:Color)}
+function $ROMapBuilder(){return smalltalk.ROMapBuilder||(typeof ROMapBuilder=="undefined"?nil:ROMapBuilder)}
+function $GETDiagramBuilder(){return smalltalk.GETDiagramBuilder||(typeof GETDiagramBuilder=="undefined"?nil:GETDiagramBuilder)}
+function $ROMouseEnter(){return smalltalk.ROMouseEnter||(typeof ROMouseEnter=="undefined"?nil:ROMouseEnter)}
+function $ROMouseLeave(){return smalltalk.ROMouseLeave||(typeof ROMouseLeave=="undefined"?nil:ROMouseLeave)}
+return smalltalk.withContext(function($ctx1) { 
+var $2,$1,$3,$4,$5,$6,$8,$12,$11,$10,$9,$7,$13;
+view=_st($ROView())._new();
+$ctx1.sendIdx["new"]=1;
+color=_st($Color())._lightBlue();
+cityBuilder=_st($ROMapBuilder())._new();
+$ctx1.sendIdx["new"]=2;
+_st(cityBuilder)._view_(view);
+_st(cityBuilder)._allCountries();
+$2=_st($ROMapBuilder())._new();
+$ctx1.sendIdx["new"]=3;
+$1=_st($2)._pib();
+values=_st($1)._sorted_((function(ar1,ar2){
+return smalltalk.withContext(function($ctx2) {
+$3=_st(ar2)._second();
+$ctx2.sendIdx["second"]=1;
+return _st($3).__lt(_st(ar1)._second());
+}, function($ctx2) {$ctx2.fillBlock({ar1:ar1,ar2:ar2},$ctx1,1)})}));
+graphBuilder=_st($GETDiagramBuilder())._new();
+_st(graphBuilder)._rawView_(view);
+$4=_st(graphBuilder)._verticalBarDiagram();
+_st($4)._models_(_st(values)._copyFrom_to_((1),(40)));
+_st($4)._y_("second");
+_st($4)._color_(color);
+$ctx1.sendIdx["color:"]=1;
+_st($4)._regularAxisAsInteger();
+_st($4)._barWidth_((2));
+$5=_st($4)._titleLabel_("Gross Domestic Product (GDP)");
+$6=_st(_st(graphBuilder)._interaction())._popUpText();
+_st($6)._on_do_($ROMouseEnter(),(function(event){
+return smalltalk.withContext(function($ctx2) {
+$8=view;
+$12=_st(event)._element();
+$ctx2.sendIdx["element"]=1;
+$11=_st($12)._model();
+$ctx2.sendIdx["model"]=1;
+$10=_st($11)._first();
+$ctx2.sendIdx["first"]=1;
+$9=_st($10)._asSymbol();
+$ctx2.sendIdx["asSymbol"]=1;
+$7=_st($8)._elementFromModel_($9);
+$ctx2.sendIdx["elementFromModel:"]=1;
+return _st($7)._color_(color);
+$ctx2.sendIdx["color:"]=2;
+}, function($ctx2) {$ctx2.fillBlock({event:event},$ctx1,2)})}));
+$ctx1.sendIdx["on:do:"]=1;
+$13=_st($6)._on_do_($ROMouseLeave(),(function(event){
+return smalltalk.withContext(function($ctx2) {
+return _st(_st(view)._elementFromModel_(_st(_st(_st(_st(event)._element())._model())._first())._asSymbol()))._color_(_st($Color())._white());
+}, function($ctx2) {$ctx2.fillBlock({event:event},$ctx1,3)})}));
+_st(graphBuilder)._openIn_(view);
+_st(view)._open();
+return self}, function($ctx1) {$ctx1.fill(self,"gdp",{view:view,cityBuilder:cityBuilder,values:values,graphBuilder:graphBuilder,color:color},smalltalk.ROExample)})},
+args: [],
+source: "gdp\x0a| view cityBuilder values graphBuilder color|\x0a\x09view := ROView new.\x0a\x09color := Color lightBlue.\x0a\x09\x0a\x09\x22Maps\x22\x0a\x09cityBuilder := ROMapBuilder new.\x0a\x09cityBuilder view: view.\x0a\x09cityBuilder allCountries.\x0a\x09\x0a\x09\x22Values\x22\x0a\x09values := ROMapBuilder new pib \x0a\x09\x09\x09sorted: [ :ar1 :ar2 | ar2 second < ar1 second ].\x0a\x09graphBuilder := GETDiagramBuilder new.\x0a\x09graphBuilder rawView: view.\x0a\x09graphBuilder verticalBarDiagram\x0a\x09\x09\x09models: (values copyFrom: 1 to: 40);\x0a\x09\x09\x09y: #second;\x0a\x09\x09\x09color: color;\x0a\x09\x09\x09regularAxisAsInteger;\x0a\x09\x09\x09barWidth: 2;\x0a\x09\x09\x09titleLabel: 'Gross Domestic Product (GDP)'.\x0a\x09graphBuilder interaction popUpText\x0a\x09\x09on: ROMouseEnter \x0a\x09\x09do: [ :event |  \x0a\x09\x09\x09\x09(view elementFromModel: \x0a\x09\x09\x09\x09\x09event element model first asSymbol) color: color  ];\x0a\x09\x09on: ROMouseLeave \x0a\x09\x09do: [ :event |  \x0a\x09\x09\x09\x09(view elementFromModel: \x0a\x09\x09\x09\x09\x09event element model first asSymbol) color: Color white  ] \x09\x09\x09.\x0a\x09graphBuilder openIn: view.\x0a\x09\x0a\x09\x22Openining the thing\x22\x0a\x09view open.\x0a\x09\x22view openInWindowSized: 1000 @ 600.\x22",
+messageSends: ["new", "lightBlue", "view:", "allCountries", "sorted:", "pib", "<", "second", "rawView:", "models:", "verticalBarDiagram", "copyFrom:to:", "y:", "color:", "regularAxisAsInteger", "barWidth:", "titleLabel:", "on:do:", "popUpText", "interaction", "elementFromModel:", "asSymbol", "first", "model", "element", "white", "openIn:", "open"],
+referencedClasses: ["ROView", "Color", "ROMapBuilder", "GETDiagramBuilder", "ROMouseEnter", "ROMouseLeave"]
+}),
+smalltalk.ROExample);
+
+smalltalk.addMethod(
+smalltalk.method({
 selector: "greenAndRedNumbers",
 category: 'demo',
 fn: function (){
@@ -637,6 +710,152 @@ args: [],
 source: "hover\x0a|view element|\x0aview := ROView new.\x0aelement := ROElement new size: 100.\x0aelement + ROBox.\x0a\x22Open an inspector when clicking\x22\x0aelement on: ROMouseEnter do: [ :event | event element color: Color red. event element view signalUpdate. ].\x0aelement on: ROMouseLeave do: [ :event | event element color: Color blue.  event element view signalUpdate. ].\x0aview add: element.\x0aview open.",
 messageSends: ["new", "size:", "+", "on:do:", "color:", "element", "red", "signalUpdate", "view", "blue", "add:", "open"],
 referencedClasses: ["ROView", "ROElement", "ROBox", "ROMouseEnter", "Color", "ROMouseLeave"]
+}),
+smalltalk.ROExample);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "ironMaiden",
+category: 'demo',
+fn: function (){
+var self=this;
+var builder,maiden1,maiden2;
+function $RelationalTowersBuilder(){return smalltalk.RelationalTowersBuilder||(typeof RelationalTowersBuilder=="undefined"?nil:RelationalTowersBuilder)}
+return smalltalk.withContext(function($ctx1) { 
+var $1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29,$30,$31,$32,$33,$34,$35,$36,$37,$38,$39,$40,$41,$42,$43,$44,$45,$46,$47,$48,$49,$50,$51,$52,$53;
+maiden1=[[(2013),(46),["United States","Germany","United Kingdom","Brazil","Spain","Russia","France","Poland","Sweden","Austria","Finland","Argentina","Switzerland","Romania","Paraguay","Netherlands","Turkey","Chile","Portugal","Slovakia","Czech Republic","Belgium","Croatia","Italy","Mexico"]],[(2012),(34),["United States","Canada"]],[(2011),(63),["United Kingdom","Brazil","Australia","Germany","France","Russia","Indonesia","United States","Mexico","Colombia","Netherlands","Peru","Poland","Denmark","Czech Republic","Sweden","Singapore","Argentina","Austria","Belgium","Chile","Greece","Norway","Puerto Rico","Turkey","Finland","South Korea","Switzerland","Portugal","Italy","Spain"]],[(2010),(36),["United States","Canada","Italy","Ireland","Belgium","United Kingdom","Spain","Sweden","Germany","Finland","Norway","Hungary","Romania"]],[(2009),(22),["Brazil","Mexico","New Zealand","Colombia","Ecuador","Serbia","India","Chile","United Arab Emirates","Peru","Argentina","United States","Venezuela","Costa Rica"]],[(2008),(68),["United States","Canada","Australia","Mexico","Brazil","Japan","Sweden","Norway","France","Finland","Argentina","Puerto Rico","Czech Republic","Chile","Poland","Hungary","Portugal","Costa Rica","Romania","Colombia","Greece","United Kingdom","Croatia","Denmark","Netherlands","Russia","India","Switzerland","Germany","Italy","Belgium","Spain"]],[(2007),(16),["United Kingdom","Germany","Italy","Slovenia","Belgium","India","Greece","United Arab Emirates","Spain","Serbia","Netherlands","Czech Republic","Bulgaria"]],[(2006),(45),["United Kingdom","United States","Japan","Sweden","Finland","Canada","Norway","Italy","Denmark","Germany","Switzerland","Ireland","France","Spain","Netherlands"]],[(2005),(46),["United States","United Kingdom","Germany","Finland","Norway","Canada","Portugal","Belgium","Czech Republic","Switzerland","Netherlands","Greece","Austria","Sweden","Poland","Ireland","Iceland","Italy","France","Spain"]],[(2004),(14),["United States","Japan","Brazil","Canada","Argentina","Chile"]],[(2003),(90),["United States","Germany","United Kingdom","Spain","France","Sweden","Italy","Canada","Belgium","Czech Republic","Denmark","Switzerland","Finland","Hungary","Netherlands","Poland","Norway","Croatia","Portugal","Slovakia","Austria","Ireland"]],[(2002),(4),["United Kingdom"]],[(2001),(6),["United Kingdom","Argentina","Brazil","Mexico","Chile"]],[(2000),(79),["United States","Japan","United Kingdom","Germany","Canada","Spain","France","Poland","Czech Republic","Switzerland","Sweden","Slovenia","Portugal","Norway","Greece","Belgium","Netherlands","Hungary","Denmark","Slovakia","Finland","Italy","Austria","Estonia"]],[(1999),(28),["United States","Canada","Germany","Spain","Sweden","Italy","Netherlands","Greece","France","Finland"]],[(1998),(87),["United States","Germany","United Kingdom","France","Spain","Italy","Japan","Brazil","Canada","Mexico","Turkey","Greece","Argentina","Hungary","Poland","Finland","Czech Republic","Portugal","Malta","Belgium","Denmark","Sweden","Switzerland","Netherlands"]],[(1996),(75),["United States","France","Japan","Spain","Italy","Brazil","Canada","Argentina","United Kingdom","Greece","Mexico","Slovenia","Denmark","Netherlands","Chile","Ireland","Colombia","Finland","Belgium"]],[(1995),(55),["Germany","Italy","United Kingdom","Spain","Israel","South Africa","Sweden","Switzerland","Greece","Denmark","Norway","Romania","Belgium","Finland","France","Portugal","Bulgaria","Austria","Poland","Slovakia","Netherlands","Hungary","Czech Republic"]],[(1993),(45),["Italy","United Kingdom","Germany","France","Russia","Spain","Czech Republic","Slovakia","Sweden","Netherlands","Ireland","Austria","Switzerland","Portugal"]],[(1992),(65),["United States","Japan","Canada","Spain","France","Mexico","Brazil","Australia","United Kingdom","Venezuela","Sweden","Italy","Germany","Belgium","Argentina","Puerto Rico","Finland","Norway","Denmark","Switzerland","Uruguay","Iceland","Netherlands","New Zealand"]],[(1991),(50),["United States","Canada","Japan","Switzerland","Denmark","France"]],[(1990),(56),["United Kingdom","Germany","Italy","Spain","Netherlands","Belgium","France","Sweden","Finland","Ireland","Portugal","Norway","Denmark"]],[(1988),(97),["United States","United Kingdom","Canada","Germany","Spain","France","Sweden","Finland","Portugal","Italy","Belgium","Hungary","Denmark","Netherlands","Austria","Switzerland","Norway","Greece"]],[(1987),(85),["United States","Canada","Japan"]],[(1986),(66),["United Kingdom","Germany","Poland","France","Italy","Sweden","Spain","Austria","Serbia","Portugal","Hungary","Switzerland","Croatia","Slovenia","Netherlands","Norway","Belgium","Finland"]],[(1985),(104),["United States","Japan","Australia","Brazil","United Kingdom"]],[(1984),(87),["United Kingdom","Canada","Germany","United States","France","Poland","Italy","Spain","Portugal","Sweden","Slovenia","Switzerland","Finland","Hungary","Belgium","Netherlands","Austria","Denmark","Serbia"]],[(1983),(137),["United States","United Kingdom","Germany","Canada","France","Spain","Sweden","Netherlands","Denmark","Belgium","Finland","Switzerland","Norway"]],[(1982),(181),["United States","United Kingdom","France","Canada","Australia","Japan","Germany","Spain","Belgium","Switzerland","Netherlands"]],[(1981),(137),["United States","United Kingdom","France","Germany","Italy","Sweden","Netherlands","Japan","Canada","Denmark","Belgium","Serbia","Switzerland"]],[(1980),(157),["United Kingdom","Germany","Italy","France","Belgium","Sweden","Portugal","Netherlands","Finland","Norway","Switzerland","Ireland","Denmark"]],[(1979),(89),["United Kingdom"]],[(1978),(4),["United Kingdom"]],[(1977),(38),["United Kingdom"]],[(1976),(34),["United Kingdom"]]];
+$1="United States".__minus_gt((686));
+$ctx1.sendIdx["->"]=1;
+$2="United Kingdom".__minus_gt((538));
+$ctx1.sendIdx["->"]=2;
+$3="Germany".__minus_gt((154));
+$ctx1.sendIdx["->"]=3;
+$4="Canada".__minus_gt((111));
+$ctx1.sendIdx["->"]=4;
+$5="France".__minus_gt((109));
+$ctx1.sendIdx["->"]=5;
+$6="Japan".__minus_gt((70));
+$ctx1.sendIdx["->"]=6;
+$7="Italy".__minus_gt((70));
+$ctx1.sendIdx["->"]=7;
+$8="Spain".__minus_gt((68));
+$ctx1.sendIdx["->"]=8;
+$9="Sweden".__minus_gt((39));
+$ctx1.sendIdx["->"]=9;
+$10="Australia".__minus_gt((32));
+$ctx1.sendIdx["->"]=10;
+$11="Brazil".__minus_gt((32));
+$ctx1.sendIdx["->"]=11;
+$12="Netherlands".__minus_gt((28));
+$ctx1.sendIdx["->"]=12;
+$13="Finland".__minus_gt((24));
+$ctx1.sendIdx["->"]=13;
+$14="Belgium".__minus_gt((24));
+$ctx1.sendIdx["->"]=14;
+$15="Poland".__minus_gt((23));
+$ctx1.sendIdx["->"]=15;
+$16="Switzerland".__minus_gt((22));
+$ctx1.sendIdx["->"]=16;
+$17="Denmark".__minus_gt((19));
+$ctx1.sendIdx["->"]=17;
+$18="Norway".__minus_gt((18));
+$ctx1.sendIdx["->"]=18;
+$19="Mexico".__minus_gt((17));
+$ctx1.sendIdx["->"]=19;
+$20="Portugal".__minus_gt((16));
+$ctx1.sendIdx["->"]=20;
+$21="Greece".__minus_gt((13));
+$ctx1.sendIdx["->"]=21;
+$22="Czech Republic".__minus_gt((11));
+$ctx1.sendIdx["->"]=22;
+$23="Austria".__minus_gt((11));
+$ctx1.sendIdx["->"]=23;
+$24="Hungary".__minus_gt((10));
+$ctx1.sendIdx["->"]=24;
+$25="Argentina".__minus_gt((10));
+$ctx1.sendIdx["->"]=25;
+$26="Ireland".__minus_gt((8));
+$ctx1.sendIdx["->"]=26;
+$27="Russia".__minus_gt((8));
+$ctx1.sendIdx["->"]=27;
+$28="Chile".__minus_gt((7));
+$ctx1.sendIdx["->"]=28;
+$29="Serbia".__minus_gt((5));
+$ctx1.sendIdx["->"]=29;
+$30="Slovenia".__minus_gt((5));
+$ctx1.sendIdx["->"]=30;
+$31="Slovakia".__minus_gt((5));
+$ctx1.sendIdx["->"]=31;
+$32="Croatia".__minus_gt((4));
+$ctx1.sendIdx["->"]=32;
+$33="Romania".__minus_gt((4));
+$ctx1.sendIdx["->"]=33;
+$34="Colombia".__minus_gt((4));
+$ctx1.sendIdx["->"]=34;
+$35="Turkey".__minus_gt((4));
+$ctx1.sendIdx["->"]=35;
+$36="New Zealand".__minus_gt((3));
+$ctx1.sendIdx["->"]=36;
+$37="Venezuela".__minus_gt((3));
+$ctx1.sendIdx["->"]=37;
+$38="India".__minus_gt((3));
+$ctx1.sendIdx["->"]=38;
+$39="Israel".__minus_gt((3));
+$ctx1.sendIdx["->"]=39;
+$40="South Africa".__minus_gt((3));
+$ctx1.sendIdx["->"]=40;
+$41="Puerto Rico".__minus_gt((3));
+$ctx1.sendIdx["->"]=41;
+$42="United Arab Emirates".__minus_gt((2));
+$ctx1.sendIdx["->"]=42;
+$43="Indonesia".__minus_gt((2));
+$ctx1.sendIdx["->"]=43;
+$44="Bulgaria".__minus_gt((2));
+$ctx1.sendIdx["->"]=44;
+$45="Peru".__minus_gt((2));
+$ctx1.sendIdx["->"]=45;
+$46="Iceland".__minus_gt((2));
+$ctx1.sendIdx["->"]=46;
+$47="Costa Rica".__minus_gt((2));
+$ctx1.sendIdx["->"]=47;
+$48="South Korea".__minus_gt((1));
+$ctx1.sendIdx["->"]=48;
+$49="Uruguay".__minus_gt((1));
+$ctx1.sendIdx["->"]=49;
+$50="Ecuador".__minus_gt((1));
+$ctx1.sendIdx["->"]=50;
+$51="Estonia".__minus_gt((1));
+$ctx1.sendIdx["->"]=51;
+$52="Malta".__minus_gt((1));
+$ctx1.sendIdx["->"]=52;
+$53="Singapore".__minus_gt((1));
+$ctx1.sendIdx["->"]=53;
+maiden2=[$1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15,$16,$17,$18,$19,$20,$21,$22,$23,$24,$25,$26,$27,$28,$29,$30,$31,$32,$33,$34,$35,$36,$37,$38,$39,$40,$41,$42,$43,$44,$45,$46,$47,$48,$49,$50,$51,$52,$53,"Paraguay".__minus_gt((1))];
+builder=_st($RelationalTowersBuilder())._new();
+_st(builder)._title_("Iron Maiden");
+_st(builder)._legend_("Concerts around the word per year");
+_st(builder)._body_("Iron Maiden are an English heavy metal band \x0aformed in Leyton, east London, in 1975 by \x0abassist and primary songwriter Steve Harris. \x0aThe band's discography has grown to \x0athirty-seven albums, including fifteen studio \x0aalbums, eleven live albums, four EPs, and \x0aseven compilations.\x0a\x0aPioneers of the New Wave of British Heavy \x0aMetal, Iron Maiden achieved initial success \x0aduring the early 1980s. After several line-up \x0achanges, the band went on to release a \x0aseries of US and UK platinum and gold \x0aalbums, including 1982's The Number of the \x0aBeast, 1983's Piece of Mind, 1984's \x0aPowerslave, 1985's live release Live After \x0aDeath, 1986's Somewhere in Time and \x0a1988's Seventh Son of a Seventh Son. \x0aSince the return of lead vocalist Bruce \x0aDickinson and guitarist Adrian Smith in 1999, \x0athe band have undergone a resurgence in \x0apopularity, with their latest studio offering, \x0aThe Final Frontier, peaking at No. 1 in 28 \x0adifferent countries and receiving \x0awidespread critical acclaim.\x0a\x0aConsidered one of the most successful \x0aheavy metal bands in history, Iron Maiden \x0ahave sold over 85 million records worldwide \x0awith little radio or television support. The \x0aband won the Ivor Novello Award for \x0ainternational achievement in 2002, and were \x0aalso inducted into the Hollywood RockWalk in \x0aSunset Boulevard, Los Angeles, California \x0aduring their United States tour in 2005. As of \x0aOctober 2013, the band have played over \x0a2000 live shows throughout their career. For \x0athe past 35 years, the band have been \x0asupported by their famous mascot, \x22Eddie\x22, \x0awho has appeared on almost all of their album \x0aand single covers, as well as in their live \x0ashows.");
+_st(builder)._colorLeft_("second");
+_st(builder)._colorRight_("value");
+_st(builder)._heightLeft_("second");
+_st(builder)._heightRight_((function(v){
+return smalltalk.withContext(function($ctx2) {
+return _st(_st(v)._value()).__slash((10));
+}, function($ctx2) {$ctx2.fillBlock({v:v},$ctx1,1)})}));
+_st(builder)._left_(maiden1);
+_st(builder)._right_(maiden2);
+_st(builder)._labelLeft_("first");
+_st(builder)._labelRight_("key");
+_st(builder)._edgesTo_((function(a,b){
+return smalltalk.withContext(function($ctx2) {
+return _st(_st(a)._third())._includes_(_st(b)._key());
+}, function($ctx2) {$ctx2.fillBlock({a:a,b:b},$ctx1,2)})}));
+_st(builder)._open();
+return self}, function($ctx1) {$ctx1.fill(self,"ironMaiden",{builder:builder,maiden1:maiden1,maiden2:maiden2},smalltalk.ROExample)})},
+args: [],
+source: "ironMaiden\x0a\x0a\x09|builder maiden1 maiden2 |\x0a\x09\x0a\x09maiden1 := {{2013 . 46 . { 'United States' . 'Germany' . 'United Kingdom' . 'Brazil' . 'Spain' . 'Russia' . 'France' . 'Poland' . 'Sweden' . 'Austria' . 'Finland' . 'Argentina' . 'Switzerland' . 'Romania' . 'Paraguay' . 'Netherlands' . 'Turkey' . 'Chile' . 'Portugal' . 'Slovakia' . 'Czech Republic' . 'Belgium' . 'Croatia' . 'Italy' . 'Mexico' }}.\x0a{2012 . 34 . { 'United States' . 'Canada' }} .\x0a{2011 . 63 . { 'United Kingdom'\x09. 'Brazil' . 'Australia' . 'Germany' . 'France' . 'Russia' . 'Indonesia' . 'United States' . 'Mexico' . 'Colombia' . 'Netherlands' . 'Peru' . 'Poland' . 'Denmark' . 'Czech Republic' . 'Sweden' . 'Singapore' . 'Argentina' . 'Austria' . 'Belgium' . 'Chile' . 'Greece' . 'Norway' . 'Puerto Rico' . 'Turkey' . 'Finland' . 'South Korea'\x09. 'Switzerland' . 'Portugal' . 'Italy' . 'Spain' }} .\x0a{2010 . 36 . { 'United States' . 'Canada' . 'Italy' . 'Ireland' . 'Belgium' . 'United Kingdom' . 'Spain' . 'Sweden' . 'Germany' . 'Finland' . 'Norway' . 'Hungary' .  'Romania' }} .\x0a{2009 . 22 . { 'Brazil' . 'Mexico' . 'New Zealand' . 'Colombia' . 'Ecuador' . 'Serbia' . 'India' . 'Chile' . 'United Arab Emirates' . 'Peru' . 'Argentina' . 'United States' . 'Venezuela' . 'Costa Rica'}} .\x0a{2008 . 68 . { 'United States' . 'Canada' . 'Australia' . 'Mexico' . 'Brazil' . 'Japan' . 'Sweden' . 'Norway' . 'France' . 'Finland' . 'Argentina' . 'Puerto Rico' . 'Czech Republic' . 'Chile' . 'Poland' . 'Hungary' . 'Portugal' . 'Costa Rica' . 'Romania' . 'Colombia' . 'Greece' . 'United Kingdom' . 'Croatia' . 'Denmark' . 'Netherlands' . 'Russia' . 'India' . 'Switzerland' . 'Germany' . 'Italy' . 'Belgium' . 'Spain' }} .\x0a{2007 . 16 . { 'United Kingdom' . 'Germany' . 'Italy' . 'Slovenia' . 'Belgium' . 'India' . 'Greece' . 'United Arab Emirates' . 'Spain' . 'Serbia' . 'Netherlands' . 'Czech Republic' . 'Bulgaria' }} .\x0a{2006 . 45 . { 'United Kingdom'\x09. 'United States' . 'Japan' . 'Sweden' . 'Finland' . 'Canada' . 'Norway' . 'Italy' . 'Denmark' . 'Germany' . 'Switzerland' . 'Ireland' . 'France' . 'Spain' . 'Netherlands' }} .\x0a{2005 . 46 . { 'United States' . 'United Kingdom' . 'Germany' . 'Finland' . 'Norway' . 'Canada' . 'Portugal' . 'Belgium' . 'Czech Republic' . 'Switzerland' . 'Netherlands' . 'Greece' . 'Austria' . 'Sweden' . 'Poland' . 'Ireland' . 'Iceland' . 'Italy' . 'France' . 'Spain' }} .\x0a{2004 . 14 . { 'United States' . 'Japan' . 'Brazil' . 'Canada' . 'Argentina' . 'Chile' }} .\x0a{2003 . 90 . { 'United States' . 'Germany' . 'United Kingdom' . 'Spain' . 'France' . 'Sweden' . 'Italy' . 'Canada' . 'Belgium' . 'Czech Republic' . 'Denmark' . 'Switzerland' . 'Finland' . 'Hungary' . 'Netherlands' . 'Poland' . 'Norway' . 'Croatia' . 'Portugal' . 'Slovakia' . 'Austria' . 'Ireland'}} .\x0a{2002 . 4 . { 'United Kingdom' }} . \x0a{2001 . 6 . { 'United Kingdom' . 'Argentina' . 'Brazil' . 'Mexico' . 'Chile' }} .\x0a{2000 . 79 . { 'United States' . 'Japan' . 'United Kingdom' . 'Germany' . 'Canada' . 'Spain' . 'France' . 'Poland' . 'Czech Republic' . 'Switzerland' . 'Sweden' . 'Slovenia' . 'Portugal' . 'Norway' . 'Greece' . 'Belgium' . 'Netherlands' . 'Hungary' . 'Denmark' . 'Slovakia' . 'Finland' . 'Italy' . 'Austria' . 'Estonia' }} .\x0a{1999 . 28 . { 'United States' . 'Canada' . 'Germany' . 'Spain' . 'Sweden' . 'Italy' . 'Netherlands' . 'Greece' . 'France' . 'Finland'}} .\x0a{1998 . 87 .  {'United States' . 'Germany' . 'United Kingdom' . 'France' . 'Spain' . 'Italy' . 'Japan' . 'Brazil' . 'Canada' . 'Mexico' . 'Turkey' . 'Greece' . 'Argentina' . 'Hungary' . 'Poland' . 'Finland' . 'Czech Republic' . 'Portugal' . 'Malta' . 'Belgium' . 'Denmark' . 'Sweden' . 'Switzerland' . 'Netherlands' }} .\x0a{1996 . 75 . {'United States' . 'France' . 'Japan' . 'Spain' . 'Italy' . 'Brazil' . 'Canada' . 'Argentina' . 'United Kingdom' . 'Greece' . 'Mexico' . 'Slovenia' . 'Denmark' . 'Netherlands' . 'Chile' . 'Ireland' . 'Colombia' . 'Finland' . 'Belgium' }} .\x0a{1995 . 55 . {'Germany' . 'Italy' . 'United Kingdom' . 'Spain' . 'Israel' . 'South Africa' . 'Sweden' . 'Switzerland' . 'Greece' . 'Denmark' . 'Norway' . 'Romania' . 'Belgium' . 'Finland' . 'France' . 'Portugal' . 'Bulgaria' . 'Austria' . 'Poland' . 'Slovakia' . 'Netherlands' . 'Hungary' . 'Czech Republic'}} .\x0a{1993  . 45 . {'Italy'  . 'United Kingdom' . 'Germany' . 'France' . 'Russia' . 'Spain' . 'Czech Republic' . 'Slovakia' . 'Sweden' . 'Netherlands' . 'Ireland' . 'Austria' . 'Switzerland' . 'Portugal' }} .\x0a{1992  . 65 . {'United States' . 'Japan' . 'Canada' . 'Spain' . 'France' . 'Mexico' . 'Brazil' . 'Australia' . 'United Kingdom' . 'Venezuela' . 'Sweden' . 'Italy' . 'Germany' . 'Belgium' . 'Argentina' . 'Puerto Rico' . 'Finland' . 'Norway' . 'Denmark' . 'Switzerland' . 'Uruguay' . 'Iceland' . 'Netherlands' . 'New Zealand' }} .\x0a{1991 . 50 . {'United States' . 'Canada' . 'Japan' . 'Switzerland' . 'Denmark' . 'France'}} .\x0a{1990 . 56 . {'United Kingdom' . 'Germany' . 'Italy' . 'Spain' . 'Netherlands' . 'Belgium' . 'France' . 'Sweden' . 'Finland' . 'Ireland' . 'Portugal' . 'Norway' . 'Denmark' }} .\x0a{1988 . 97 . {'United States' . 'United Kingdom' . 'Canada' . 'Germany' . 'Spain' . 'France' . 'Sweden' . 'Finland' . 'Portugal' . 'Italy' . 'Belgium' . 'Hungary' . 'Denmark' . 'Netherlands' . 'Austria'\x09. 'Switzerland' . 'Norway' . 'Greece' }} .\x0a{1987  . 85 .  {'United States' . 'Canada' . 'Japan'}} .\x0a{1986  . 66 .  {'United Kingdom' . 'Germany' . 'Poland' . 'France' . 'Italy' . 'Sweden' . 'Spain' . 'Austria' . 'Serbia' . 'Portugal' . 'Hungary' . 'Switzerland' . 'Croatia' . 'Slovenia' . 'Netherlands' . 'Norway' . 'Belgium' . 'Finland' }} .\x0a{1985 . 104 .  {'United States' . 'Japan' . 'Australia' . 'Brazil' . 'United Kingdom' }} .\x0a{1984 . 87 . {'United Kingdom' . 'Canada' . 'Germany' . 'United States' . 'France' . 'Poland' . 'Italy' . 'Spain' . 'Portugal' . 'Sweden' . 'Slovenia' . 'Switzerland' . 'Finland' . 'Hungary' . 'Belgium' . 'Netherlands' . 'Austria' . 'Denmark' . 'Serbia' }} .\x0a{1983 . 137 .  {'United States' . 'United Kingdom' . 'Germany' . 'Canada' . 'France' . 'Spain' . 'Sweden' . 'Netherlands' . 'Denmark' . 'Belgium' . 'Finland' . 'Switzerland' . 'Norway' }} .\x0a{1982  . 181 . {'United States' . 'United Kingdom' . 'France' . 'Canada' . 'Australia' . 'Japan' . 'Germany' . 'Spain' . 'Belgium' . 'Switzerland' . 'Netherlands' }} .\x0a{1981  . 137 .  {'United States' . 'United Kingdom' . 'France' . 'Germany' . 'Italy' . 'Sweden' . 'Netherlands' . 'Japan' . 'Canada' . 'Denmark' . 'Belgium' . 'Serbia' . 'Switzerland' }} .\x0a{1980  . 157 .\x09{'United Kingdom' . 'Germany' . 'Italy' . 'France' . 'Belgium' . 'Sweden' . 'Portugal' . 'Netherlands' . 'Finland' . 'Norway' . 'Switzerland' . 'Ireland' .\x09'Denmark' }} .\x0a{ 1979 . 89 . { 'United Kingdom' }} .\x0a{ 1978 . 4 . { 'United Kingdom' }} .\x0a{ 1977 . 38 . { 'United Kingdom' }} .\x0a{ 1976 . 34 . { 'United Kingdom' }}}.\x0a\x09maiden2 := {'United States' -> 686 . 'United Kingdom' -> 538 . 'Germany' -> 154 . 'Canada' -> 111 . 'France' -> 109 . 'Japan' -> 70 . 'Italy' -> 70 . 'Spain' -> 68 . 'Sweden'\x09-> 39 . 'Australia' -> 32 . 'Brazil' -> 32 . 'Netherlands' -> 28 . 'Finland' -> 24 . 'Belgium' -> 24 . 'Poland' -> 23 . 'Switzerland' -> 22 . 'Denmark' -> 19 . 'Norway' -> 18 . 'Mexico' -> 17 . 'Portugal' -> 16 . 'Greece' -> 13 . 'Czech Republic' -> 11 . 'Austria' -> 11 . 'Hungary' -> 10 . 'Argentina' -> 10 . 'Ireland' -> 8 . 'Russia' -> 8 . 'Chile' -> 7 . 'Serbia' -> 5 . 'Slovenia' -> 5 . 'Slovakia' -> 5 . 'Croatia' -> 4 . 'Romania' -> 4 .'Colombia' -> 4 . 'Turkey' -> 4 . 'New Zealand' -> 3 . 'Venezuela' -> 3 . 'India' -> 3 . 'Israel' -> 3 . 'South Africa' -> 3 . 'Puerto Rico' -> 3. 'United Arab Emirates' -> 2 . 'Indonesia' -> 2 . 'Bulgaria'\x09-> 2 . 'Peru' -> 2 . 'Iceland' -> 2 . 'Costa Rica' -> 2 . 'South Korea' -> 1 . 'Uruguay' -> 1 . 'Ecuador' -> 1 . 'Estonia' -> 1 . 'Malta' -> 1 . 'Singapore' -> 1 . 'Paraguay' -> 1}.\x0a\x09\x0a\x09builder := RelationalTowersBuilder new.\x0a\x09builder title: 'Iron Maiden'.\x0a\x09builder legend: 'Concerts around the word per year'.\x0a\x09builder body: 'Iron Maiden are an English heavy metal band \x0aformed in Leyton, east London, in 1975 by \x0abassist and primary songwriter Steve Harris. \x0aThe band''s discography has grown to \x0athirty-seven albums, including fifteen studio \x0aalbums, eleven live albums, four EPs, and \x0aseven compilations.\x0a\x0aPioneers of the New Wave of British Heavy \x0aMetal, Iron Maiden achieved initial success \x0aduring the early 1980s. After several line-up \x0achanges, the band went on to release a \x0aseries of US and UK platinum and gold \x0aalbums, including 1982''s The Number of the \x0aBeast, 1983''s Piece of Mind, 1984''s \x0aPowerslave, 1985''s live release Live After \x0aDeath, 1986''s Somewhere in Time and \x0a1988''s Seventh Son of a Seventh Son. \x0aSince the return of lead vocalist Bruce \x0aDickinson and guitarist Adrian Smith in 1999, \x0athe band have undergone a resurgence in \x0apopularity, with their latest studio offering, \x0aThe Final Frontier, peaking at No. 1 in 28 \x0adifferent countries and receiving \x0awidespread critical acclaim.\x0a\x0aConsidered one of the most successful \x0aheavy metal bands in history, Iron Maiden \x0ahave sold over 85 million records worldwide \x0awith little radio or television support. The \x0aband won the Ivor Novello Award for \x0ainternational achievement in 2002, and were \x0aalso inducted into the Hollywood RockWalk in \x0aSunset Boulevard, Los Angeles, California \x0aduring their United States tour in 2005. As of \x0aOctober 2013, the band have played over \x0a2000 live shows throughout their career. For \x0athe past 35 years, the band have been \x0asupported by their famous mascot, \x22Eddie\x22, \x0awho has appeared on almost all of their album \x0aand single covers, as well as in their live \x0ashows.'.\x0a\x09builder colorLeft: #second.\x0a\x09builder colorRight: #value.\x0a\x09builder heightLeft: #second.\x0a\x09builder heightRight: [:v| v value / 10].\x0a\x09builder left: maiden1.\x0a\x09builder right: maiden2.\x0a\x09builder labelLeft: #first.\x0a\x09builder labelRight: #key.\x0a\x09builder edgesTo: [:a :b | a third includes: (b key) ].\x0a\x09builder open.",
+messageSends: ["->", "new", "title:", "legend:", "body:", "colorLeft:", "colorRight:", "heightLeft:", "heightRight:", "/", "value", "left:", "right:", "labelLeft:", "labelRight:", "edgesTo:", "includes:", "third", "key", "open"],
+referencedClasses: ["RelationalTowersBuilder"]
 }),
 smalltalk.ROExample);
 
@@ -879,79 +1098,6 @@ smalltalk.ROExample);
 
 smalltalk.addMethod(
 smalltalk.method({
-selector: "pib",
-category: 'demo',
-fn: function (){
-var self=this;
-var view,cityBuilder,values,graphBuilder,color;
-function $ROView(){return smalltalk.ROView||(typeof ROView=="undefined"?nil:ROView)}
-function $Color(){return smalltalk.Color||(typeof Color=="undefined"?nil:Color)}
-function $ROMapBuilder(){return smalltalk.ROMapBuilder||(typeof ROMapBuilder=="undefined"?nil:ROMapBuilder)}
-function $GETDiagramBuilder(){return smalltalk.GETDiagramBuilder||(typeof GETDiagramBuilder=="undefined"?nil:GETDiagramBuilder)}
-function $ROMouseEnter(){return smalltalk.ROMouseEnter||(typeof ROMouseEnter=="undefined"?nil:ROMouseEnter)}
-function $ROMouseLeave(){return smalltalk.ROMouseLeave||(typeof ROMouseLeave=="undefined"?nil:ROMouseLeave)}
-return smalltalk.withContext(function($ctx1) { 
-var $2,$1,$3,$4,$5,$6,$8,$12,$11,$10,$9,$7,$13;
-view=_st($ROView())._new();
-$ctx1.sendIdx["new"]=1;
-color=_st($Color())._lightBlue();
-cityBuilder=_st($ROMapBuilder())._new();
-$ctx1.sendIdx["new"]=2;
-_st(cityBuilder)._view_(view);
-_st(cityBuilder)._allCountries();
-$2=_st($ROMapBuilder())._new();
-$ctx1.sendIdx["new"]=3;
-$1=_st($2)._pib();
-values=_st($1)._sorted_((function(ar1,ar2){
-return smalltalk.withContext(function($ctx2) {
-$3=_st(ar2)._second();
-$ctx2.sendIdx["second"]=1;
-return _st($3).__lt(_st(ar1)._second());
-}, function($ctx2) {$ctx2.fillBlock({ar1:ar1,ar2:ar2},$ctx1,1)})}));
-graphBuilder=_st($GETDiagramBuilder())._new();
-_st(graphBuilder)._rawView_(view);
-$4=_st(graphBuilder)._verticalBarDiagram();
-_st($4)._models_(_st(values)._copyFrom_to_((1),(40)));
-_st($4)._y_("second");
-_st($4)._color_(color);
-$ctx1.sendIdx["color:"]=1;
-_st($4)._regularAxisAsInteger();
-_st($4)._barWidth_((2));
-$5=_st($4)._titleLabel_("Gross Domestic Product (GDP)");
-$6=_st(_st(graphBuilder)._interaction())._popUpText();
-_st($6)._on_do_($ROMouseEnter(),(function(event){
-return smalltalk.withContext(function($ctx2) {
-$8=view;
-$12=_st(event)._element();
-$ctx2.sendIdx["element"]=1;
-$11=_st($12)._model();
-$ctx2.sendIdx["model"]=1;
-$10=_st($11)._first();
-$ctx2.sendIdx["first"]=1;
-$9=_st($10)._asSymbol();
-$ctx2.sendIdx["asSymbol"]=1;
-$7=_st($8)._elementFromModel_($9);
-$ctx2.sendIdx["elementFromModel:"]=1;
-return _st($7)._color_(color);
-$ctx2.sendIdx["color:"]=2;
-}, function($ctx2) {$ctx2.fillBlock({event:event},$ctx1,2)})}));
-$ctx1.sendIdx["on:do:"]=1;
-$13=_st($6)._on_do_($ROMouseLeave(),(function(event){
-return smalltalk.withContext(function($ctx2) {
-return _st(_st(view)._elementFromModel_(_st(_st(_st(_st(event)._element())._model())._first())._asSymbol()))._color_(_st($Color())._white());
-}, function($ctx2) {$ctx2.fillBlock({event:event},$ctx1,3)})}));
-_st(graphBuilder)._openIn_(view);
-_st(view)._open();
-return self}, function($ctx1) {$ctx1.fill(self,"pib",{view:view,cityBuilder:cityBuilder,values:values,graphBuilder:graphBuilder,color:color},smalltalk.ROExample)})},
-args: [],
-source: "pib\x0a| view cityBuilder values graphBuilder color|\x0a\x09view := ROView new.\x0a\x09color := Color lightBlue.\x0a\x09\x0a\x09\x22Maps\x22\x0a\x09cityBuilder := ROMapBuilder new.\x0a\x09cityBuilder view: view.\x0a\x09cityBuilder allCountries.\x0a\x09\x0a\x09\x22Values\x22\x0a\x09values := ROMapBuilder new pib \x0a\x09\x09\x09sorted: [ :ar1 :ar2 | ar2 second < ar1 second ].\x0a\x09graphBuilder := GETDiagramBuilder new.\x0a\x09graphBuilder rawView: view.\x0a\x09graphBuilder verticalBarDiagram\x0a\x09\x09\x09models: (values copyFrom: 1 to: 40);\x0a\x09\x09\x09y: #second;\x0a\x09\x09\x09color: color;\x0a\x09\x09\x09regularAxisAsInteger;\x0a\x09\x09\x09barWidth: 2;\x0a\x09\x09\x09titleLabel: 'Gross Domestic Product (GDP)'.\x0a\x09graphBuilder interaction popUpText\x0a\x09\x09on: ROMouseEnter \x0a\x09\x09do: [ :event |  \x0a\x09\x09\x09\x09(view elementFromModel: \x0a\x09\x09\x09\x09\x09event element model first asSymbol) color: color  ];\x0a\x09\x09on: ROMouseLeave \x0a\x09\x09do: [ :event |  \x0a\x09\x09\x09\x09(view elementFromModel: \x0a\x09\x09\x09\x09\x09event element model first asSymbol) color: Color white  ] \x09\x09\x09.\x0a\x09graphBuilder openIn: view.\x0a\x09\x0a\x09\x22Openining the thing\x22\x0a\x09view open.\x0a\x09\x22view openInWindowSized: 1000 @ 600.\x22",
-messageSends: ["new", "lightBlue", "view:", "allCountries", "sorted:", "pib", "<", "second", "rawView:", "models:", "verticalBarDiagram", "copyFrom:to:", "y:", "color:", "regularAxisAsInteger", "barWidth:", "titleLabel:", "on:do:", "popUpText", "interaction", "elementFromModel:", "asSymbol", "first", "model", "element", "white", "openIn:", "open"],
-referencedClasses: ["ROView", "Color", "ROMapBuilder", "GETDiagramBuilder", "ROMouseEnter", "ROMouseLeave"]
-}),
-smalltalk.ROExample);
-
-smalltalk.addMethod(
-smalltalk.method({
 selector: "plotFromCSV",
 category: 'demo',
 fn: function (){
@@ -991,21 +1137,27 @@ var self=this;
 var view,element;
 function $ROView(){return smalltalk.ROView||(typeof ROView=="undefined"?nil:ROView)}
 function $ROElement(){return smalltalk.ROElement||(typeof ROElement=="undefined"?nil:ROElement)}
-function $Collection(){return smalltalk.Collection||(typeof Collection=="undefined"?nil:Collection)}
 function $ROBox(){return smalltalk.ROBox||(typeof ROBox=="undefined"?nil:ROBox)}
+function $Color(){return smalltalk.Color||(typeof Color=="undefined"?nil:Color)}
+function $RODraggable(){return smalltalk.RODraggable||(typeof RODraggable=="undefined"?nil:RODraggable)}
 function $ROPopup(){return smalltalk.ROPopup||(typeof ROPopup=="undefined"?nil:ROPopup)}
 return smalltalk.withContext(function($ctx1) { 
 view=_st($ROView())._new();
-element=_st(_st($ROElement())._forCollection_(_st($Collection())._withAllSubclasses()))._first();
-_st(element).__plus($ROBox());
-_st(element).__at($ROPopup());
+element=_st(_st($ROElement())._on_("Text 1"))._size_((40));
+_st(_st(element).__plus($ROBox()))._color_(_st($Color())._lightRed());
+_st(element).__at($RODraggable());
+$ctx1.sendIdx["@"]=1;
+_st(element).__at(_st($ROPopup())._text_((function(el){
+return smalltalk.withContext(function($ctx2) {
+return _st(el).__comma(" y 2");
+}, function($ctx2) {$ctx2.fillBlock({el:el},$ctx1,1)})})));
 _st(view)._add_(element);
 _st(view)._open();
 return self}, function($ctx1) {$ctx1.fill(self,"popup",{view:view,element:element},smalltalk.ROExample)})},
 args: [],
-source: "popup\x0a|view element|\x0aview := ROView new.\x0a\x22element := (ROElement on: 'Hi there!') size: 100.\x22\x0aelement := (ROElement forCollection: Collection withAllSubclasses) first.\x0aelement + ROBox.\x0aelement @ ROPopup.\x0a\x22Open an inspector when clicking\x22\x0a\x0aview add: element.\x0aview open.",
-messageSends: ["new", "first", "forCollection:", "withAllSubclasses", "+", "@", "add:", "open"],
-referencedClasses: ["ROView", "ROElement", "Collection", "ROBox", "ROPopup"]
+source: "popup\x0a\x09|view element|\x0a\x09view := ROView new.\x0a\x09element := (ROElement on: 'Text 1') size: 40.\x0a\x09element + ROBox color: Color lightRed.\x0a\x09element @ RODraggable.\x0a\x09element @ (ROPopup text: [:el |  el , ' y 2']).\x0a\x09view add: element.\x0a\x09view open.",
+messageSends: ["new", "size:", "on:", "color:", "+", "lightRed", "@", "text:", ",", "add:", "open"],
+referencedClasses: ["ROView", "ROElement", "ROBox", "Color", "RODraggable", "ROPopup"]
 }),
 smalltalk.ROExample);
 
@@ -1077,6 +1229,42 @@ args: [],
 source: "punchcard\x0a\x0a|builder|\x0abuilder := ROPunchcardBuilder new.\x0abuilder addModels: #( 'Sed' 'molestie' 'nec' 'nisi quis' 'vestibulum' 'Morbi tempus' 'luctus' 'commodo' ).\x0abuilder addMetric: [:word | word size] namedAs: 'length'.\x0abuilder addMetric: [:word | word size * 3 ] namedAs: 'length * 3'.\x0abuilder addMetric: [:word | word size / 2 ] namedAs: 'length / 2'.\x0abuilder minColor: Color green.\x0abuilder maxColor: Color red.\x0abuilder open.",
 messageSends: ["new", "addModels:", "addMetric:namedAs:", "size", "*", "/", "minColor:", "green", "maxColor:", "red", "open"],
 referencedClasses: ["ROPunchcardBuilder", "Color"]
+}),
+smalltalk.ROExample);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "relationalTowers",
+category: 'demo',
+fn: function (){
+var self=this;
+var builder;
+function $RelationalTowersBuilder(){return smalltalk.RelationalTowersBuilder||(typeof RelationalTowersBuilder=="undefined"?nil:RelationalTowersBuilder)}
+return smalltalk.withContext(function($ctx1) { 
+var $1,$2,$3,$4;
+builder=_st($RelationalTowersBuilder())._new();
+_st(builder)._legend_("Example of a relation between two set of integers");
+$1=builder;
+$2=(1)._to_((10));
+$ctx1.sendIdx["to:"]=1;
+_st($1)._left_($2);
+$3=builder;
+$4=(1)._to_((20));
+$ctx1.sendIdx["to:"]=2;
+_st($3)._right_($4);
+_st(builder)._edgesFromLeft_edgesToLeft_((function(v){
+return smalltalk.withContext(function($ctx2) {
+return _st(_st(v).__minus((5)))._to_(_st(v).__plus((5)));
+}, function($ctx2) {$ctx2.fillBlock({v:v},$ctx1,1)})}),(function(v){
+return smalltalk.withContext(function($ctx2) {
+return _st(v).__slash((2));
+}, function($ctx2) {$ctx2.fillBlock({v:v},$ctx1,2)})}));
+_st(builder)._open();
+return self}, function($ctx1) {$ctx1.fill(self,"relationalTowers",{builder:builder},smalltalk.ROExample)})},
+args: [],
+source: "relationalTowers\x0a\x0a\x09| builder |\x0a\x0a\x09builder := RelationalTowersBuilder new.\x0a\x09builder legend: 'Example of a relation between two set of integers'.\x0a\x09builder left: (1 to: 10).\x0a\x09builder right: (1 to: 20).\x0a\x09builder edgesFromLeft: [ :v | (v - 5) to: (v + 5) ] edgesToLeft: [ :v | (v / 2) ].\x0a\x09builder open",
+messageSends: ["new", "legend:", "left:", "to:", "right:", "edgesFromLeft:edgesToLeft:", "-", "+", "/", "open"],
+referencedClasses: ["RelationalTowersBuilder"]
 }),
 smalltalk.ROExample);
 
@@ -1210,70 +1398,23 @@ smalltalk.ROExample);
 
 smalltalk.addMethod(
 smalltalk.method({
-selector: "similarityMatrix",
-category: 'demo',
-fn: function (){
-var self=this;
-function $SimilarityMatrix(){return smalltalk.SimilarityMatrix||(typeof SimilarityMatrix=="undefined"?nil:SimilarityMatrix)}
-function $Collection(){return smalltalk.Collection||(typeof Collection=="undefined"?nil:Collection)}
-function $Browser(){return smalltalk.Browser||(typeof Browser=="undefined"?nil:Browser)}
-return smalltalk.withContext(function($ctx1) { 
-var $1,$2,$3,$5,$6,$4,$7;
-$1=_st($SimilarityMatrix())._new();
-_st($1)._on_by_withAction_(_st(_st($Collection())._allSubclasses())._sort_((function(a,b){
-return smalltalk.withContext(function($ctx2) {
-$2=_st(a)._numberOfMethods();
-$ctx2.sendIdx["numberOfMethods"]=1;
-$3=_st(b)._numberOfMethods();
-$ctx2.sendIdx["numberOfMethods"]=2;
-return _st($2).__lt($3);
-}, function($ctx2) {$ctx2.fillBlock({a:a,b:b},$ctx1,1)})})),(function(classA,classB){
-var a,b;
-return smalltalk.withContext(function($ctx2) {
-a=_st(classA)._numberOfMethods();
-$ctx2.sendIdx["numberOfMethods"]=3;
-a;
-b=_st(classB)._numberOfMethods();
-b;
-$5=_st(a)._min_(b);
-$6=_st(_st(b)._max_(a))._max_((1));
-$ctx2.sendIdx["max:"]=1;
-$4=_st($5).__slash($6);
-return _st($4)._asFloat();
-}, function($ctx2) {$ctx2.fillBlock({classA:classA,classB:classB,a:a,b:b},$ctx1,2)})}),(function(classA,classB){
-return smalltalk.withContext(function($ctx2) {
-_st($Browser())._openOn_(classA);
-$ctx2.sendIdx["openOn:"]=1;
-return _st($Browser())._openOn_(classB);
-}, function($ctx2) {$ctx2.fillBlock({classA:classA,classB:classB},$ctx1,3)})}));
-$7=_st($1)._viewMatrix();
-return self}, function($ctx1) {$ctx1.fill(self,"similarityMatrix",{},smalltalk.ROExample)})},
-args: [],
-source: "similarityMatrix\x0a\x22show which Collection subclasses\x0ahave a similar number of methods\x22\x0aSimilarityMatrix new\x0a\x09on: (Collection allSubclasses\x0a\x09\x09sort: [:a :b |\x0a\x09\x09\x09a numberOfMethods\x0a\x09\x09\x09< b numberOfMethods])\x0a\x09by: [ :classA : classB | |a b|\x0a\x09\x09a := classA numberOfMethods.\x0a\x09\x09b := classB numberOfMethods.\x0a\x09\x09((a min: b) / ((b max: a) max: 1))\x0a\x09\x09\x09asFloat ]\x0a\x09withAction: [:classA :classB |\x0a\x09\x09Browser openOn: classA.\x0a\x09\x09Browser openOn: classB ] ;\x0a\x09viewMatrix",
-messageSends: ["on:by:withAction:", "new", "sort:", "allSubclasses", "<", "numberOfMethods", "asFloat", "/", "min:", "max:", "openOn:", "viewMatrix"],
-referencedClasses: ["SimilarityMatrix", "Collection", "Browser"]
-}),
-smalltalk.ROExample);
-
-smalltalk.addMethod(
-smalltalk.method({
 selector: "theWorld",
 category: 'not yet classified',
 fn: function (){
 var self=this;
 var view,color;
 function $ROView(){return smalltalk.ROView||(typeof ROView=="undefined"?nil:ROView)}
-function $ROSVGPath(){return smalltalk.ROSVGPath||(typeof ROSVGPath=="undefined"?nil:ROSVGPath)}
+function $ROCountryInfo(){return smalltalk.ROCountryInfo||(typeof ROCountryInfo=="undefined"?nil:ROCountryInfo)}
 function $ROPath(){return smalltalk.ROPath||(typeof ROPath=="undefined"?nil:ROPath)}
 function $ROHighlight(){return smalltalk.ROHighlight||(typeof ROHighlight=="undefined"?nil:ROHighlight)}
 function $Color(){return smalltalk.Color||(typeof Color=="undefined"?nil:Color)}
 function $ROPopup(){return smalltalk.ROPopup||(typeof ROPopup=="undefined"?nil:ROPopup)}
 return smalltalk.withContext(function($ctx1) { 
 view=_st($ROView())._new();
-_st(view)._addAll_(_st(_st($ROSVGPath())._world())._collect_((function(country){
+_st(view)._addAll_(_st(_st($ROCountryInfo())._world())._collect_((function(country){
 var el;
 return smalltalk.withContext(function($ctx2) {
-el=_st(_st($ROPath())._path_(_st($ROSVGPath())._perform_(country)))._elementOn_(country);
+el=_st(_st($ROPath())._path_(_st($ROCountryInfo())._perform_(country)))._elementOn_(country);
 el;
 _st(el).__at(_st($ROHighlight())._color_(_st($Color())._brown()));
 $ctx2.sendIdx["@"]=1;
@@ -1282,9 +1423,38 @@ return _st(el).__at($ROPopup());
 _st(view)._open();
 return self}, function($ctx1) {$ctx1.fill(self,"theWorld",{view:view,color:color},smalltalk.ROExample)})},
 args: [],
-source: "theWorld\x0a\x0a\x09|view color|\x0a\x09view := ROView new.\x0a\x09\x0a\x09view addAll: ((ROSVGPath world) collect: [:country |\x0a\x09\x09|el|\x0a\x09\x09el := (ROPath path: (ROSVGPath perform: country)) \x0a\x09\x09\x09\x09\x09elementOn: country.\x0a\x09\x09el @ (ROHighlight color: Color brown).\x0a\x09\x09el @ ROPopup.\x0a\x09]).\x0a\x09\x0a\x09view open.",
+source: "theWorld\x0a\x0a\x09|view color|\x0a\x09view := ROView new.\x0a\x09\x0a\x09view addAll: ((ROCountryInfo world) collect: [:country |\x0a\x09\x09|el|\x0a\x09\x09el := (ROPath path: (ROCountryInfo perform: country)) \x0a\x09\x09\x09\x09\x09elementOn: country.\x0a\x09\x09el @ (ROHighlight color: Color brown).\x0a\x09\x09el @ ROPopup.\x0a\x09]).\x0a\x09\x0a\x09view open.",
 messageSends: ["new", "addAll:", "collect:", "world", "elementOn:", "path:", "perform:", "@", "color:", "brown", "open"],
-referencedClasses: ["ROView", "ROSVGPath", "ROPath", "ROHighlight", "Color", "ROPopup"]
+referencedClasses: ["ROView", "ROCountryInfo", "ROPath", "ROHighlight", "Color", "ROPopup"]
+}),
+smalltalk.ROExample);
+
+smalltalk.addMethod(
+smalltalk.method({
+selector: "theWorld2",
+category: 'not yet classified',
+fn: function (){
+var self=this;
+var view,color;
+function $ROView(){return smalltalk.ROView||(typeof ROView=="undefined"?nil:ROView)}
+function $ROCountryInfo(){return smalltalk.ROCountryInfo||(typeof ROCountryInfo=="undefined"?nil:ROCountryInfo)}
+function $ROPath(){return smalltalk.ROPath||(typeof ROPath=="undefined"?nil:ROPath)}
+function $ROPopup(){return smalltalk.ROPopup||(typeof ROPopup=="undefined"?nil:ROPopup)}
+return smalltalk.withContext(function($ctx1) { 
+view=_st($ROView())._new();
+_st(view)._addAll_(_st(_st($ROCountryInfo())._world())._collect_((function(country){
+var el;
+return smalltalk.withContext(function($ctx2) {
+el=_st(_st($ROPath())._path_(_st($ROCountryInfo())._perform_(country)))._elementOn_(country);
+el;
+return _st(el).__at($ROPopup());
+}, function($ctx2) {$ctx2.fillBlock({country:country,el:el},$ctx1,1)})})));
+_st(view)._open();
+return self}, function($ctx1) {$ctx1.fill(self,"theWorld2",{view:view,color:color},smalltalk.ROExample)})},
+args: [],
+source: "theWorld2\x0a\x0a\x09|view color|\x0a\x09view := ROView new.\x0a\x09\x0a\x09view addAll: ((ROCountryInfo world) collect: [:country |\x0a\x09\x09|el|\x0a\x09\x09el := (ROPath path: (ROCountryInfo perform: country)) \x0a\x09\x09\x09\x09\x09elementOn: country.\x0a\x09\x09el @ ROPopup.\x0a\x09]).\x0a\x09\x0a\x09view open.",
+messageSends: ["new", "addAll:", "collect:", "world", "elementOn:", "path:", "perform:", "@", "open"],
+referencedClasses: ["ROView", "ROCountryInfo", "ROPath", "ROPopup"]
 }),
 smalltalk.ROExample);
 

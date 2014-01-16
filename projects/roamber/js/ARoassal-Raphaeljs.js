@@ -917,10 +917,10 @@ category: 'as yet unclassified',
 fn: function (){
 var self=this;
 return smalltalk.withContext(function($ctx1) { 
- var paper = Raphael("roassal-canvas", 1600 , 900); return paper;;
+ var paper = Raphael("roassal-canvas", 1600 , 900); paper.canvas.id = 'roassal-svg-canvas'; return paper;;
 return self}, function($ctx1) {$ctx1.fill(self,"paper",{},smalltalk.RORaphaelCanvas)})},
 args: [],
-source: "paper\x0a\x09< var paper = Raphael(\x22roassal-canvas\x22, 1600 , 900); return paper;>",
+source: "paper\x0a\x09< var paper = Raphael(\x22roassal-canvas\x22, 1600 , 900); paper.canvas.id = 'roassal-svg-canvas'; return paper;>",
 messageSends: [],
 referencedClasses: []
 }),
@@ -975,22 +975,19 @@ selector: "origin",
 category: 'as yet unclassified',
 fn: function (){
 var self=this;
+var canvasElement;
 return smalltalk.withContext(function($ctx1) { 
-var $4,$3,$2,$6,$5,$1;
-$4=self._canvas();
-$ctx1.sendIdx["canvas"]=2;
-$3=_st($4)._canvas();
-$ctx1.sendIdx["canvas"]=1;
-$2=_st($3)._offsetLeft();
-$6=_st(self._canvas())._canvas();
-$ctx1.sendIdx["canvas"]=3;
-$5=_st($6)._offsetTop();
-$1=_st($2).__at($5);
+var $3,$2,$1;
+canvasElement="#roassal-svg-canvas"._asJQuery();
+$3=_st(canvasElement)._offset();
+$ctx1.sendIdx["offset"]=1;
+$2=_st($3)._left();
+$1=_st($2).__at(_st(_st(canvasElement)._offset())._top());
 return $1;
-}, function($ctx1) {$ctx1.fill(self,"origin",{},smalltalk.RORaphaelCanvas.klass)})},
+}, function($ctx1) {$ctx1.fill(self,"origin",{canvasElement:canvasElement},smalltalk.RORaphaelCanvas.klass)})},
 args: [],
-source: "origin\x0a\x09^ (self canvas canvas offsetLeft) @ (self canvas canvas offsetTop)",
-messageSends: ["@", "offsetLeft", "canvas", "offsetTop"],
+source: "origin\x0a\x09| canvasElement |\x0a\x09canvasElement := '#roassal-svg-canvas' asJQuery.\x0a\x09^ (canvasElement offset left) @ (canvasElement offset top)",
+messageSends: ["asJQuery", "@", "left", "offset", "top"],
 referencedClasses: []
 }),
 smalltalk.RORaphaelCanvas.klass);
