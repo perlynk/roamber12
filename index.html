@@ -22,7 +22,6 @@
 		require([
 			'amber/devel',
 			
-			'roamber/RoassalD3',
 			'roamber/ARoassal', 
 			'roamber/ARoassal-Test',
 			'roamber/ARoassal-Demo',
@@ -34,7 +33,7 @@
 			'roamber/ARoassal-Raphaeljs', 
 			'roamber/ARoassal-Layout', 
 			'roamber/ARoassal-Layout-Test',
-			'roamber/ARoassal-Similarity',
+			// 'roamber/ARoassal-Similarity',
 			'roamber/Roassal-Normalizers',
 			'roamber/Roassal-Amber-Extensions',
 			'roamber/Roassal-Builder-Punchcard',
@@ -48,6 +47,7 @@
 			'roamber/Graph-ET-Examples',
 			'roamber/Graph-ET-Util',
 			'roamber/Graph-ET-Util-Tests',
+      
 		],
         function(st) {
 			smalltalk = st; // set the global smalltalk
@@ -56,7 +56,7 @@
 			// -- 9 --
 			smalltalk.initialize();
 			// -- 10 --
-			// smalltalk.Browser._open();
+			smalltalk.Browser._open();
 			smalltalk.RODemo._init();
         });
       window.onbeforeunload = function() {

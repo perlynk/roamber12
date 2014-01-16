@@ -350,6 +350,10 @@ cyan
 	^ self colorDict at: #cyan
 !
 
+darkGray
+	^   self colorDict at: #darkGray
+!
+
 gray
 	^   self colorDict at: #gray
 !
@@ -1567,6 +1571,10 @@ isBehavior
 	^false
 !
 
+isBlock
+	^false
+!
+
 isCollection
 	^false.
 !
@@ -1596,25 +1604,6 @@ shouldnt: aBlock raise: anExceptionClass
 	self assert: ([aBlock value. true] 
 		on: anExceptionClass 
 		do: [:ex | false])
-! !
-
-!Announcer methodsFor: '*Roassal-Amber-Extensions'!
-
-numberOfSubscriptions
-	subscriptions ifNil:[^ 0].
-	^ subscriptions size
-!
-
-unsubscribe: anEvent
-	
-	subscriptions removeAllSuchThat: [:announSubscript | announSubscript announcementClass ==  anEvent class].
-!
-
-when: aClass do: aBlock
-	subscriptions add: (AnnouncementSubscription new
-		block: aBlock;
-		announcementClass: aClass;
-		yourself)
 ! !
 
 !Behavior methodsFor: '*Roassal-Amber-Extensions'!
@@ -1688,10 +1677,139 @@ withAllSuperclasses
 	^(Array with: self) addAll: self allSuperclasses; yourself
 ! !
 
+!Number methodsFor: '*Roassal-Amber-Extensions'!
+
+// aNumber
+
+	<return Math.floor( self / aNumber ) >
+!
+
+abs
+	^Math abs: self
+!
+
+asFloat
+	^self
+!
+
+asInteger
+	^self truncated
+!
+
+between: min and: max 
+	"Answer whether the receiver is less than or equal to the argument, max, 
+	and greater than or equal to the argument, min."
+
+	^self >= min and: [self <= max]
+!
+
+ceiling
+	
+	< return Math.ceil(self); >
+!
+
+cos
+	<return Math.cos(self)>
+!
+
+exp
+	<return Math.exp(self)>
+!
+
+floor
+	
+	< return Math.floor(self); >
+!
+
+fractionPart
+	^ self - (self floor)
+!
+
+isInteger
+	^ self = (self asInteger)
+!
+
+ln
+   
+   < return Math.log(self); >
+!
+
+max: max in: anInterval 
+	"
+	(0 max: 20 in: (1 to: 10)) == 1
+	(0 max: 20 in: (0 to: 10)) == 0
+	(0 max: 20 in: (1 to: 10)) == 1
+	(2 max: 20 in: (0 to: 10)) == 1 
+	(4 max: 20 in: (0 to: 10)) == 2
+	(20 max: 20 in: (0 to: 10)) == 10
+	"
+	^ self min: 0 max: max in: anInterval
+!
+
+min: min max: max in: anInterval 
+	"
+	(0 max: 20 in: (1 to: 10)) == 1
+	(0 max: 20 in: (0 to: 10)) == 0
+	(0 max: 20 in: (1 to: 10)) == 1
+	(2 max: 20 in: (0 to: 10)) == 1 
+	(4 max: 20 in: (0 to: 10)) == 2
+	(19 max: 20 in: (0 to: 10)) == 10
+	"
+	^ (self - min) / (max - min) * (anInterval last - anInterval first) + anInterval first
+!
+
+quo: aNumber 
+	"Integer quotient defined by division with truncation toward zero. 
+	
+	-9 quo: 4 = -2.
+	-0.9 quo: 0.4 = -2. 
+	
+	rem: answers the remainder from this division."
+
+	^(self / aNumber) truncated
+!
+
+rem: aNumber 
+	"Remainder defined in terms of quo:. Answer a Number with the same 
+	sign as self. e.g. 9 rem: 4 = 1, -9 rem: 4 = -1. 0.9 rem: 0.4 = 0.1."
+
+	^self - ((self quo: aNumber) * aNumber)
+!
+
+roundTo: quantum 
+	"Answer the nearest number that is a multiple of quantum."
+
+	^(self / quantum) rounded * quantum
+!
+
+roundUpTo: aNumber 
+	"Answer the next multiple of aNumber toward infinity that is nearest the receiver.
+	Examples:
+               3.1479 roundUpTo: 0.01 -> 3.15
+               3.1479 roundUpTo: 0.1 -> 3.2
+               1923 roundUpTo: 10 -> 1930
+               3.1479 roundUpTo: 0.005 -> 3.15
+               -3.1479 roundUpTo: 0.01 -> -3.14"
+
+	^(self / aNumber) ceiling * aNumber
+!
+
+sin
+	<return Math.sin(self)>
+!
+
+tan
+	<return Math.tan(self)>
+! !
+
 !BlockClosure methodsFor: '*Roassal-Amber-Extensions'!
 
 fork
 	^self value
+!
+
+isBlock
+	^true
 !
 
 roValue: valueOrArray
@@ -1825,22 +1943,6 @@ with: otherCollection collect: twoArgBlock
 	^ result
 ! !
 
-!HashedCollection methodsFor: '*Roassal-Amber-Extensions'!
-
-doWithIndex: aBlock2
-	"Support Set enumeration with a counter, even though not ordered"
-	| index |
-	index := 0.
-	self do: [:item | aBlock2 value: item value: (index := index+1)]
-! !
-
-!Dictionary methodsFor: '*Roassal-Amber-Extensions'!
-
-at: anIndex ifAbsentPut: aBlock
-	^self at: anIndex ifAbsent: [
-	    self at: anIndex put: aBlock value]
-! !
-
 !SequenceableCollection methodsFor: '*Roassal-Amber-Extensions'!
 
 atAllPut: anObject 
@@ -1896,67 +1998,6 @@ with: otherCollection do: twoArgBlock
 		[:index |
 		twoArgBlock value: (self at: index)
 				value: (otherCollection at: index)]
-! !
-
-!Array methodsFor: '*Roassal-Amber-Extensions'!
-
-@ interactionClassOrObject
-	| obj |
-	obj := interactionClassOrObject elementToBeAdded.
-	self do: [ :el | el addInteraction: obj ].
-	^ self
-!
-
-addFirst: anObject
-	<self.unshift(anObject); return anObject;>
-!
-
-asDictionary
-	^ Dictionary from: self
-!
-
-asSorted: aBlockOrSymbol
-	| c b |
-	c := self copy.
-	(aBlockOrSymbol isKindOf: BlockClosure)
-		ifTrue: [ b := aBlockOrSymbol ].
-		
-	(aBlockOrSymbol isKindOf: Symbol)
-		ifTrue: [ b := [ :v1 :v2 | (v1 perform: aBlockOrSymbol) <= (v2 perform: aBlockOrSymbol) ] ].
-		
-	c sort: b.
-	^ c
-!
-
-at: anIndex ifAbsentPut: aBlock
-	^self at: anIndex ifAbsent: [
-	    self at: anIndex put: aBlock value]
-!
-
-rangeIncludes: aNumber
-
-	"As there is not Interval class, this method is under the implementation of this in Amber"
-
-	^(aNumber >= self first and:[aNumber <= self last])
-!
-
-removeFirst
-	<var o = self.shift(); return o;>
-!
-
-removeFirst: anObject
-	<self.shift(anObject); return anObject;>
-! !
-
-!Array class methodsFor: '*Roassal-Amber-Extensions'!
-
-with: anObject with: anObject2 with: anObject3 with: anObject4
-	    ^(self new: 3)
-		at: 1 put: anObject;
-		at: 2 put: anObject2;
-		at: 3 put: anObject3;
-		at: 4 put: anObject4;
-		yourself
 ! !
 
 !String methodsFor: '*Roassal-Amber-Extensions'!
@@ -2029,140 +2070,81 @@ with: aUTFCharCode
 	^self fromString: aUTFCharCode
 ! !
 
-!Symbol methodsFor: '*Roassal-Amber-Extensions'!
+!Array methodsFor: '*Roassal-Amber-Extensions'!
 
-roValue: anObject
-	^anObject perform: self
+@ interactionClassOrObject
+	| obj |
+	obj := interactionClassOrObject elementToBeAdded.
+	self do: [ :el | el addInteraction: obj ].
+	^ self
 !
 
-value: anObject
-	^anObject perform: self
+addFirst: anObject
+	<self.unshift(anObject); return anObject;>
+!
+
+asDictionary
+	^ Dictionary from: self
+!
+
+asSorted: aBlockOrSymbol
+	| c b |
+	c := self copy.
+	(aBlockOrSymbol isKindOf: BlockClosure)
+		ifTrue: [ b := aBlockOrSymbol ].
+		
+	(aBlockOrSymbol isKindOf: Symbol)
+		ifTrue: [ b := [ :v1 :v2 | (v1 perform: aBlockOrSymbol) <= (v2 perform: aBlockOrSymbol) ] ].
+		
+	c sort: b.
+	^ c
+!
+
+at: anIndex ifAbsentPut: aBlock
+	^self at: anIndex ifAbsent: [
+	    self at: anIndex put: aBlock value]
+!
+
+rangeIncludes: aNumber
+
+	"As there is not Interval class, this method is under the implementation of this in Amber"
+
+	^(aNumber >= self first and:[aNumber <= self last])
+!
+
+removeDuplicates
+	| iterator |
+	"Remove the copies of elements, but keep the same order"
+	
+	self ifEmpty: [ ^ self ].
+	iterator := 1.
+	[ iterator <= self size ]
+		whileTrue: [ | each newIndex |
+			each := self at: iterator.			
+			[ newIndex := (self indexOf: each startingAt: iterator+1).
+			newIndex > 0 ]
+				whileTrue: [ self removeAt: newIndex ].
+			iterator := iterator + 1.
+	 ]
+!
+
+removeFirst
+	<var o = self.shift(); return o;>
+!
+
+removeFirst: anObject
+	<self.shift(anObject); return anObject;>
 ! !
 
-!Set methodsFor: '*Roassal-Amber-Extensions'!
+!Array class methodsFor: '*Roassal-Amber-Extensions'!
 
-remove: anObject ifAbsent: aBlock
-	elements remove: anObject ifAbsent: aBlock
-! !
-
-!Number methodsFor: '*Roassal-Amber-Extensions'!
-
-// aNumber
-
-	<return Math.floor( self / aNumber ) >
-!
-
-abs
-	^Math abs: self
-!
-
-asFloat
-	^self
-!
-
-asInteger
-	^self truncated
-!
-
-between: min and: max 
-	"Answer whether the receiver is less than or equal to the argument, max, 
-	and greater than or equal to the argument, min."
-
-	^self >= min and: [self <= max]
-!
-
-ceiling
-	
-	< return Math.ceil(self); >
-!
-
-cos
-	<return Math.cos(self)>
-!
-
-exp
-	<return Math.exp(self)>
-!
-
-floor
-	
-	< return Math.floor(self); >
-!
-
-fractionPart
-	^ self - (self floor)
-!
-
-isInteger
-	^ self = (self asInteger)
-!
-
-max: max in: anInterval 
-	"
-	(0 max: 20 in: (1 to: 10)) == 1
-	(0 max: 20 in: (0 to: 10)) == 0
-	(0 max: 20 in: (1 to: 10)) == 1
-	(2 max: 20 in: (0 to: 10)) == 1 
-	(4 max: 20 in: (0 to: 10)) == 2
-	(20 max: 20 in: (0 to: 10)) == 10
-	"
-	^ self min: 0 max: max in: anInterval
-!
-
-min: min max: max in: anInterval 
-	"
-	(0 max: 20 in: (1 to: 10)) == 1
-	(0 max: 20 in: (0 to: 10)) == 0
-	(0 max: 20 in: (1 to: 10)) == 1
-	(2 max: 20 in: (0 to: 10)) == 1 
-	(4 max: 20 in: (0 to: 10)) == 2
-	(19 max: 20 in: (0 to: 10)) == 10
-	"
-	^ (self - min) / (max - min) * (anInterval last - anInterval first) + anInterval first
-!
-
-quo: aNumber 
-	"Integer quotient defined by division with truncation toward zero. 
-	
-	-9 quo: 4 = -2.
-	-0.9 quo: 0.4 = -2. 
-	
-	rem: answers the remainder from this division."
-
-	^(self / aNumber) truncated
-!
-
-rem: aNumber 
-	"Remainder defined in terms of quo:. Answer a Number with the same 
-	sign as self. e.g. 9 rem: 4 = 1, -9 rem: 4 = -1. 0.9 rem: 0.4 = 0.1."
-
-	^self - ((self quo: aNumber) * aNumber)
-!
-
-roundTo: quantum 
-	"Answer the nearest number that is a multiple of quantum."
-
-	^(self / quantum) rounded * quantum
-!
-
-roundUpTo: aNumber 
-	"Answer the next multiple of aNumber toward infinity that is nearest the receiver.
-	Examples:
-               3.1479 roundUpTo: 0.01 -> 3.15
-               3.1479 roundUpTo: 0.1 -> 3.2
-               1923 roundUpTo: 10 -> 1930
-               3.1479 roundUpTo: 0.005 -> 3.15
-               -3.1479 roundUpTo: 0.01 -> -3.14"
-
-	^(self / aNumber) ceiling * aNumber
-!
-
-sin
-	<return Math.sin(self)>
-!
-
-tan
-	<return Math.tan(self)>
+with: anObject with: anObject2 with: anObject3 with: anObject4
+	    ^(self new: 3)
+		at: 1 put: anObject;
+		at: 2 put: anObject2;
+		at: 3 put: anObject3;
+		at: 4 put: anObject4;
+		yourself
 ! !
 
 !Point methodsFor: '*Roassal-Amber-Extensions'!
@@ -2283,6 +2265,47 @@ radius: rad theta: angle
 	^(rad * (Math cos: angle))@(rad * (Math sin: angle))
 ! !
 
+!HashedCollection methodsFor: '*Roassal-Amber-Extensions'!
+
+doWithIndex: aBlock2
+	"Support Set enumeration with a counter, even though not ordered"
+	| index |
+	index := 0.
+	self do: [:item | aBlock2 value: item value: (index := index+1)]
+! !
+
+!Dictionary methodsFor: '*Roassal-Amber-Extensions'!
+
+at: anIndex ifAbsentPut: aBlock
+	^self at: anIndex ifAbsent: [
+	    self at: anIndex put: aBlock value]
+! !
+
+!Set methodsFor: '*Roassal-Amber-Extensions'!
+
+remove: anObject ifAbsent: aBlock
+	elements remove: anObject ifAbsent: aBlock
+! !
+
+!Announcer methodsFor: '*Roassal-Amber-Extensions'!
+
+numberOfSubscriptions
+	subscriptions ifNil:[^ 0].
+	^ subscriptions size
+!
+
+unsubscribe: anEvent
+	
+	subscriptions removeAllSuchThat: [:announSubscript | announSubscript announcementClass ==  anEvent class].
+!
+
+when: aClass do: aBlock
+	subscriptions add: (AnnouncementSubscription new
+		block: aBlock;
+		announcementClass: aClass;
+		yourself)
+! !
+
 !ROElement methodsFor: '*Roassal-Amber-Extensions'!
 
 printString
@@ -2304,5 +2327,15 @@ asAnnouncement
 
 asAnnouncement
 	^self new
+! !
+
+!Symbol methodsFor: '*Roassal-Amber-Extensions'!
+
+roValue: anObject
+	^anObject perform: self
+!
+
+value: anObject
+	^anObject perform: self
 ! !
 
