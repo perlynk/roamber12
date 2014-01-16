@@ -301,15 +301,25 @@ isReadyToPlot
 !ROPlot methodsFor: 'data'!
 
 fetchData
-
+"
   jQuery
     ajax: url
     options: #{
         'type' -> 'GET' .
-"        'dataType' -> 'jsonp'."
        'success' -> [ :rawData | self fromText: rawData ] .
         'error' -> [window alert: 'error']
     }
+"	
+jQuery
+    ajax: url
+    options: #{
+		'accept' -> 'text/plain'.
+        'type' -> 'GET'. 
+       'success' -> [  :data :txtStatus :xhr | self fromText: data  ] .
+        'error' -> [window alert: 'Request failed at:  ', url] } 
+
+
+"$.ajax('https://dl.dropboxusercontent.com/s/hh1ujh8mofphbnl/data1.csv', {  'type' : 'GET', 'success' : function () {alert('Exito')}, 'error' : function() {alert('Error')} } )"
 !
 
 fromText: aString
@@ -363,10 +373,12 @@ processDropboxURL: aString
 	The direct link to the file is:
 	https://dl.dropbox.com/s/iyf5mscxq8d99e8/numbers.txt	
 	"
-	| pointPos prefix |
-	prefix := 'https://dl'.
-	pointPos := aString indexOf: '.' .
-	^ prefix , (aString copyFrom: pointPos to: (aString size)).
+	|str prefix|
+	prefix := 'http://dl.dropboxusercontent.' .
+	str := aString.
+	str :=(str copyFrom: (str indexOf: '.' ) + 1 to: str size ).
+	str :=(str copyFrom: (str indexOf: '.' ) + 1 to: str size ).
+	 ^ prefix , str.
 ! !
 
 !ROPlot class methodsFor: 'example'!
@@ -579,6 +591,18 @@ TestCase subclass: #ROTableTest
 	package: 'Roassal-Plot'!
 
 !ROTableTest methodsFor: 'as yet unclassified'!
+
+setUp1
+	|str table|
+	str := self class data1.
+	table := (RODataParser rawData: str withToken: ',') asTable.
+!
+
+setUp2
+	|str table|
+	str := self class data2.
+	table := (RODataParser rawData: str withToken: '&') asTable.
+!
 
 testCheckHeader
 	|str table|
